@@ -1,0 +1,36 @@
+{
+    "title": "shared_combos",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "share_id": {
+            "type": "string",
+            "description": "Unique shareable ID for the combo link"
+        },
+        "name": {
+            "type": "string",
+            "description": "Name of the combo"
+        },
+        "moves": {
+            "type": "string",
+            "description": "JSON string of moves array"
+        },
+        "instructor_name": {
+            "type": "string",
+            "description": "Name of the instructor who shared"
+        },
+        "description": {
+            "type": "string",
+            "description": "Optional description of the combo"
+        }
+    },
+    "required": [
+        "id",
+        "share_id",
+        "name",
+        "moves"
+    ]
+}

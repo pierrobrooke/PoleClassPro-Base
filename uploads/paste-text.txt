@@ -1,0 +1,54 @@
+# Pole Class Pro SVG Logo
+
+```svg
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pcpGradient" x1="0" y1="0" x2="720" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="50%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#FF2DAA"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon -->
+  <g filter="url(#glow)">
+    <rect x="20" y="28" width="88" height="88" rx="24" fill="url(#pcpGradient)"/>
+
+    <!-- Pole -->
+    <rect x="60" y="38" width="8" height="68" rx="4" fill="white"/>
+
+    <!-- Abstract dancer -->
+    <circle cx="48" cy="54" r="7" fill="white"/>
+    <path d="M48 64C54 70 59 73 67 73" stroke="white" stroke-width="6" stroke-linecap="round"/>
+    <path d="M49 74C42 83 40 92 47 101" stroke="white" stroke-width="6" stroke-linecap="round"/>
+    <path d="M66 74C76 83 82 90 88 94" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text -->
+  <text x="140" y="82" font-family="Poppins, Montserrat, Arial, sans-serif"
+        font-size="54" font-weight="800" fill="white" letter-spacing="-2">
+    Pole
+  </text>
+
+  <text x="140" y="138" font-family="Poppins, Montserrat, Arial, sans-serif"
+        font-size="54" font-weight="800" fill="url(#pcpGradient)" letter-spacing="-2">
+    Class Pro
+  </text>
+</svg>
+```
+
+This SVG is:
+
+* Fully scalable
+* Transparent background
+* Editable in Canva, Figma, Illustrator, and web apps
+* Styled to match the neon pink-purple aesthetic from your screenshot
+* Simple enough for SaaS branding, app icons, and favicons

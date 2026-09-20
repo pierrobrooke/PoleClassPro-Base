@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoleClass Pro — Project Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Murecho:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── Brand v2 · "NASA + Sunset Sherbet" ── */
+    --navy:      #151A22;
+    --surface:   #1E2530;
+    --surface2:  #283241;
+    --card:      #313D4D;
+    --ivory:     #FAF8F5;
+    --text:      #F7F4EF;
+    --text-sec:  #B8C0CC;
+    --text-dim:  rgba(184,192,204,0.65);
+    --ocean:     #73D9D6;
+    --coral:     #FF8F7A;
+    --gold:      #FFC870;
+    --lavender:  #B8B3FF;
+    --border:    rgba(184,192,204,0.14);
+    --head:      'Murecho', sans-serif;
+    --font:      'IBM Plex Sans', sans-serif;
+    --mono:      'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--navy);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+  h1,h2,h3,h4 { font-family: var(--head); line-height: 1.3; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .brand-lockup { display: flex; align-items: center; gap: 14px; }
+  .graph-mark { flex-shrink: 0; }
+  .logo {
+    font-family: var(--head);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    color: var(--ivory);
+  }
+  .logo .pro { color: var(--ocean); font-weight: 600; margin-left: 6px; }
+  .header-sub { font-size: 12px; color: var(--text-dim); font-family: var(--mono); margin-top: 2px; }
+  .header-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .phase-badge {
+    background: linear-gradient(135deg, var(--coral), var(--gold));
+    color: var(--navy);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--head);
+    letter-spacing: 0.5px;
+  }
+  .date-chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-sec);
+    background: var(--surface2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1280px; margin: 0 auto; padding: 40px 24px 96px; }
+
+  /* ── GEOMETRIC DIVIDER ── */
+  .divider {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 14px;
+    padding: 28px 0 24px;
+    user-select: none;
+  }
+
+  /* ── GLOBAL PROGRESS ── */
+  .progress-banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .micro-head {
+    font-family: var(--head);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-sec);
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+  }
+  .micro-head .glyph { margin-right: 7px; }
+  .glyph-ocean { color: var(--ocean); }
+  .glyph-coral { color: var(--coral); }
+  .glyph-gold { color: var(--gold); }
+  .glyph-lav { color: var(--lavender); }
+  .progress-track {
+    height: 8px;
+    background: var(--surface2);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ocean), var(--gold), var(--coral));
+    border-radius: 100px;
+    transition: width 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .progress-label { display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: var(--text-dim); font-family: var(--mono); }
+  .big-pct { font-size: 40px; font-weight: 800; font-family: var(--head); color: var(--gold); line-height: 1; }
+  .big-pct span { font-size: 16px; color: var(--text-dim); font-weight: 400; }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .stat-card .num { font-size: 26px; font-weight: 800; font-family: var(--head); color: var(--ivory); line-height: 1.3; }
+  .stat-card .lbl { font-size: 12px; color: var(--text-sec); margin-top: 6px; letter-spacing: 0.3px; }
+  .num.ocean { color: var(--ocean); }
+  .num.coral { color: var(--coral); }
+  .num.gold { color: var(--gold); }
+  .num.lav { color: var(--lavender); }
+
+  /* ── SECTION GRID ── */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .full { grid-column: 1 / -1; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 26px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    user-select: none;
+  }
+  .card-header:hover { background: var(--surface2); }
+  .card-title { display: flex; align-items: center; gap: 11px; }
+  .card-title h3 { font-size: 15px; font-weight: 700; color: var(--ivory); }
+  .card-icon { font-size: 16px; width: 22px; text-align: center; }
+  .card-meta { display: flex; align-items: center; gap: 10px; }
+  .mini-bar-wrap { width: 60px; height: 4px; background: var(--surface2); border-radius: 100px; overflow: hidden; }
+  .mini-bar-fill { height: 100%; background: linear-gradient(90deg, var(--ocean), var(--gold)); border-radius: 100px; transition: width 0.4s; }
+  .card-pct { font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+  .chevron { color: var(--text-dim); font-size: 11px; transition: transform 0.3s; }
+  .chevron.closed { transform: rotate(-90deg); }
+  .card-body { padding: 18px 26px 24px; }
+  .card-body.hidden { display: none; }
+
+  /* ── TASKS ── */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(184,192,204,0.07);
+    cursor: pointer;
+  }
+  .task:last-child { border-bottom: none; }
+  .task:hover .task-text { color: var(--ivory); }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--text-dim);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .task.done .checkbox { background: var(--ocean); border-color: var(--ocean); }
+  .task.done .checkbox::after { content: '✓'; font-size: 11px; color: var(--navy); font-weight: 700; }
+  .task.done .task-text { text-decoration: line-through; color: var(--text-dim); }
+  .task-content { flex: 1; }
+  .task-text { font-size: 13.5px; color: var(--text-sec); line-height: 1.55; }
+  .task-note { font-size: 11.5px; color: var(--text-dim); margin-top: 3px; font-family: var(--mono); line-height: 1.6; }
+  .badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--head);
+    padding: 3px 9px;
+    border-radius: 10px;
+    letter-spacing: 0.4px;
+    margin-top: 2px;
+  }
+  .badge-urgent { background: rgba(255,143,122,0.16); color: var(--coral); border: 1px solid rgba(255,143,122,0.35); }
+  .badge-high { background: rgba(255,200,112,0.14); color: var(--gold); border: 1px solid rgba(255,200,112,0.3); }
+  .badge-med { background: rgba(184,179,255,0.14); color: var(--lavender); border: 1px solid rgba(184,179,255,0.3); }
+  .badge-done { background: rgba(115,217,214,0.14); color: var(--ocean); border: 1px solid rgba(115,217,214,0.3); }
+
+  /* ── STATUS CHIPS ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-sec);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-ocean { background: var(--ocean); box-shadow: 0 0 6px var(--ocean); }
+  .dot-gold { background: var(--gold); }
+  .dot-coral { background: var(--coral); }
+  .dot-lav { background: var(--lavender); }
+
+  /* ── ROADMAP ── */
+  .roadmap { display: flex; flex-direction: column; }
+  .roadmap-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184,192,204,0.07);
+  }
+  .roadmap-item:last-child { border-bottom: none; }
+  .roadmap-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--head); font-weight: 700; font-size: 13px; flex-shrink: 0;
+  }
+  .roadmap-num.active { background: var(--gold); color: var(--navy); }
+  .roadmap-num.future { background: var(--surface2); color: var(--text-dim); border: 1px solid var(--border); }
+  .roadmap-content h4 { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; color: var(--ivory); }
+  .roadmap-content p { font-size: 12px; color: var(--text-sec); }
+
+  /* ── INSTRUMENT-PANEL TABLE ── */
+  .subdomain-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+  .subdomain-table th {
+    text-align: left;
+    color: var(--text-sec);
+    font-family: var(--head);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    padding: 10px 12px;
+    background: var(--surface2);
+  }
+  .subdomain-table th:first-child { border-radius: 10px 0 0 10px; }
+  .subdomain-table th:last-child { border-radius: 0 10px 10px 0; }
+  .subdomain-table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid rgba(184,192,204,0.07);
+    vertical-align: top;
+  }
+  .subdomain-table tr:last-child td { border-bottom: none; }
+  .subdomain-url { font-family: var(--mono); font-size: 11.5px; color: var(--ocean); }
+  .tier-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--head);
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+  .tier-free { background: rgba(115,217,214,0.14); color: var(--ocean); }
+  .tier-lite { background: rgba(255,143,122,0.14); color: var(--coral); }
+  .tier-pro { background: rgba(255,200,112,0.14); color: var(--gold); }
+  .tier-team { background: rgba(184,179,255,0.14); color: var(--lavender); }
+
+  /* ── TECH STACK ── */
+  .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stack-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .stack-item .tool-name { font-family: var(--head); font-weight: 700; font-size: 13px; color: var(--ivory); }
+  .stack-item .tool-desc { font-size: 11.5px; color: var(--text-sec); margin-top: 3px; line-height: 1.6; }
+  .stack-item .tool-status { font-size: 10.5px; margin-top: 7px; font-family: var(--mono); }
+
+  /* ── BACKLOG ── */
+  .backlog-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(184,192,204,0.07);
+    font-size: 13px;
+    color: var(--text-sec);
+    line-height: 1.6;
+  }
+  .backlog-item:last-child { border-bottom: none; }
+  .backlog-item .bullet { color: var(--gold); font-size: 13px; line-height: 1.6; flex-shrink: 0; }
+
+  /* ── NOTES ── */
+  .notes-area {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 12.5px;
+    color: var(--text-sec);
+    font-family: var(--mono);
+    min-height: 80px;
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    padding: 28px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .reset-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--ocean); color: var(--ocean); }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+    .full { grid-column: 1; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .progress-banner { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-lockup">
+    <!-- Interim knowledge-graph mark (placeholder until Claude Design logo lands) -->
+    <svg class="graph-mark" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="30" x2="20" y2="18" stroke="#B8C0CC" stroke-width="1.4" opacity="0.5"/>
+      <line x1="20" y1="18" x2="31" y2="9" stroke="#B8C0CC" stroke-width="1.4" opacity="0.5"/>
+      <line x1="20" y1="18" x2="30" y2="26" stroke="#B8C0CC" stroke-width="1.4" opacity="0.5"/>
+      <line x1="10" y1="30" x2="22" y2="33" stroke="#B8C0CC" stroke-width="1.4" opacity="0.5"/>
+      <circle cx="10" cy="30" r="4.5" fill="#FF8F7A"/>
+      <circle cx="20" cy="18" r="5.5" fill="#FFC870"/>
+      <circle cx="31" cy="9" r="4" fill="#73D9D6"/>
+      <circle cx="30" cy="26" r="3.5" fill="#B8B3FF"/>
+      <circle cx="22" cy="33" r="2.5" fill="#B8C0CC"/>
+    </svg>
+    <div>
+      <div class="logo">PoleClass<span class="pro">Pro</span></div>
+      <div class="header-sub">poleclasspro.com · Movement Intelligence Platform™</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="phase-badge">Iteration 1 — Pre-Launch</span>
+    <span class="date-chip" id="today-date">July 2026</span>
+    <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- GLOBAL PROGRESS -->
+  <div class="progress-banner">
+    <div>
+      <div class="micro-head"><span class="glyph glyph-gold">△</span>Overall Launch Progress</div>
+      <div class="progress-track">
+        <div class="progress-fill" id="global-bar" style="width:0%"></div>
+      </div>
+      <div class="progress-label">
+        <span id="done-count">0 tasks completed</span>
+        <span id="total-count">of 0 total</span>
+      </div>
+    </div>
+    <div class="big-pct"><span id="global-pct-num">0</span><span>%</span></div>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num gold">$0 → $12 → $20</div>
+      <div class="lbl">Tier Pricing (Free / Lite / Pro)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num lav">554</div>
+      <div class="lbl">Moves in the Knowledge Graph</div>
+    </div>
+    <div class="stat-card">
+      <div class="num coral">Brand v2</div>
+      <div class="lbl">"NASA + Sunset Sherbet" — approved 7/24</div>
+    </div>
+    <div class="stat-card">
+      <div class="num ocean">3 Live</div>
+      <div class="lbl">Supabase Projects — Moves · Competition · Auth</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- BRAND EVOLUTION v2 -->
+    <div class="card full">
+      <div class="card-header" onclick="toggleCard('brand')">
+        <div class="card-title">
+          <span class="card-icon glyph-lav">◈</span>
+          <h3>Brand Evolution v2 — Movement Intelligence Platform™</h3>
+        </div>
+        <div class="card-meta">
+          <span class="card-pct" id="brand-pct">0/10</span>
+          <div class="mini-bar-wrap"><div class="mini-bar-fill" id="brand-bar" style="width:0%"></div></div>
+          <span class="chevron" id="brand-chev">▼</span>
+        </div>
+      </div>
+      <div class="card-body" id="brand-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 28px;">
+        <div>
+          <div class="task done" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Final brand palette approval</div>
+              <div class="task-note">Approved 7/24/26 — Midnight Navy foundation + Ocean/Coral/Gold/Lavender accents, 70/20/10 ratio</div>
+            </div>
+            <span class="badge badge-done">Done ✓</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Rewrite complete brand guidelines</div>
+              <div class="task-note">Prompt ready in PoleClassPro_Brand_Prompts.md — run it next</div>
+            </div>
+            <span class="badge badge-urgent">Urgent</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">New logo — knowledge-graph mark</div>
+              <div class="task-note">Claude Design prompt ready — dancer wordmark retired with legacy v1</div>
+            </div>
+            <span class="badge badge-urgent">Urgent</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Final icon system (⬢ ○ ◈ △ ✦)</div>
+              <div class="task-note">Safety · Coaching Cue · Curriculum · Progression · Pro Tip</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Divider system selection</div>
+              <div class="task-note">✦ ✦ ✦ · ◈ ◈ ◈ · ● ○ ● ○ ● — pick the approved set</div>
+            </div>
+            <span class="badge badge-med">Med</span>
+          </div>
+        </div>
+        <div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Category language selection</div>
+              <div class="task-note">Structured Visual Movement Education™ (strongest) vs. Movement Intelligence Platform™ et al.</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Homepage wireframe — system first, humans second</div>
+              <div class="task-note">Lead with movement map / curriculum pathways, not hero-on-pole</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Movement GPS™ concept validation</div>
+              <div class="task-note">Node graph: moves, entries, exits, prerequisites, progressions, combos — possible flagship differentiator</div>
+            </div>
+            <span class="badge badge-med">Med</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Knowledge graph visualization design</div>
+              <div class="task-note">Connection colors: green=prereq · blue=transition · coral=combo · lavender=alt entry</div>
+            </div>
+            <span class="badge badge-med">Med</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'brand')" data-sec="brand">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Visual design system + curriculum table standards</div>
+              <div class="task-note">Instrument-panel tables · pathway coding: Peach=Beg · Lavender=Int · Ocean=Adv</div>
+            </div>
+            <span class="badge badge-med">Med</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITERATION ROADMAP -->
+    <div class="card">
+      <div class="card-header" onclick="toggleCard('roadmap')">
+        <div class="card-title">
+          <span class="card-icon glyph-gold">△</span>
+          <h3>Iteration Roadmap</h3>
+        </div>
+        <span class="chevron" id="roadmap-chev">▼</span>
+      </div>
+      <div class="card-body" id="roadmap-body">
+        <div class="roadmap">
+          <div class="roadmap-item">
+            <div class="roadmap-num active">1</div>
+            <div class="roadmap-content">
+              <h4>NOW — Launch with Sign-in &amp; Stripe</h4>
+              <p>Auth flow, payments, core class builder, subdomain architecture live</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-num future">2</div>
+            <div class="roadmap-content">
+              <h4>Pricing + Storage Tiers</h4>
+              <p>Determine Supabase + Obsidian storage pricing model</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-num future">3</div>
+            <div class="roadmap-content">
+              <h4>Full Obsidian Launch</h4>
+              <p>Knowledge brain for users — notes, personal library</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-num future">4</div>
+            <div class="roadmap-content">
+              <h4>Multilingual Launch</h4>
+              <p>Worldwide iteration — global industry standard goal</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-num future">5</div>
+            <div class="roadmap-content">
+              <h4>Lean Operations Mode</h4>
+              <p>Target: &lt;4 hrs/week — ops, marketing, content, maintenance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBDOMAIN MAP -->
+    <div class="card">
+      <div class="card-header" onclick="toggleCard('domains')">
+        <div class="card-title">
+          <span class="card-icon glyph-ocean">○</span>
+          <h3>Subdomain Architecture</h3>
+        </div>
+        <span class="chevron" id="domains-chev">▼</span>
+      </div>
+      <div class="card-body" id="domains-body">
+        <table class="subdomain-table">
+          <thead>
+            <tr><th>URL</th><th>Tier</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="subdomain-url">poleclasspro.com</div></td>
+              <td><span class="tier-badge tier-free">Free</span></td>
+              <td style="font-size:12px;color:var(--text-sec)">Marketing + lead gen</td>
+            </tr>
+            <tr>
+              <td><div class="subdomain-url">liteapp.</div></td>
+              <td><span class="tier-badge tier-lite">Lite ~$12</span></td>
+              <td style="font-size:12px;color:var(--text-sec)">No AI, no saves, session only</td>
+            </tr>
+            <tr>
+              <td><div class="subdomain-url">app.</div></td>
+              <td><span class="tier-badge tier-pro">Pro $20</span></td>
+              <td style="font-size:12px;color:var(--text-sec)">Full AI + class builder</td>
+            </tr>
+            <tr>
+              <td><div class="subdomain-url">dashboard.</div></td>
+              <td><span class="tier-badge tier-pro">Pro $20</span></td>
+              <td style="font-size:12px;color:var(--text-sec)">Saved plans + Spotify + notes</td>
+            </tr>
+            <tr>
+              <td><div class="subdomain-url">teamdashboard.</div></td>
+              <td><span class="tier-badge tier-team">Team TBD</span></td>
+              <td style="font-size:12px;color:var(--text-sec)">Admin: curriculum + class plans</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- LAUNCH CHECKLIST -->
+    <div class="card full">
+      <div class="card-header" onclick="toggleCard('launch')">
+        <div class="card-title">
+          <span class="card-icon glyph-coral">⬢</span>
+          <h3>Iteration 1 — Launch Checklist</h3>
+        </div>
+        <div class="card-meta">
+          <span class="card-pct" id="launch-pct">0/10</span>
+          <div class="mini-bar-wrap"><div class="mini-bar-fill" id="launch-bar" style="width:0%"></div></div>
+          <span class="chevron" id="launch-chev">▼</span>
+        </div>
+      </div>
+      <div class="card-body" id="launch-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 28px;">
+        <div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Fix TLS / SSL configuration</div>
+              <div class="task-note">Enforce TLS 1.2/1.3, disable older — SSL handshake error on poleclasspro.com</div>
+            </div>
+            <span class="badge badge-urgent">Urgent</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Stripe integration + payment flow</div>
+              <div class="task-note">Pro at $20/mo, Lite at ~$12/mo — live billing</div>
+            </div>
+            <span class="badge badge-urgent">Urgent</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Auth — sign in / sign up flow</div>
+              <div class="task-note">Supabase auth on -C project · Google OAuth in progress · Apple sign-in queued · shared .poleclasspro.com cookie</div>
+            </div>
+            <span class="badge badge-urgent">Urgent</span>
+          </div>
+          <div class="task done" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">RLS policies — Supabase confirmed</div>
+              <div class="task-note">Enabled on Moves + Competition. Team admins full access; Pro subscribers read-only published plans</div>
+            </div>
+            <span class="badge badge-done">Done ✓</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">JTW token active — Atoms.dev connection</div>
+              <div class="task-note">Refreshes every 30 days — check via DevTools → Application → Local Storage</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Class plan page — add date/date range field</div>
+              <div class="task-note">Flagged on Pro dashboard. Correct term is "class plan," not "class summary."</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Wildcard SSL cert — *.poleclasspro.com</div>
+              <div class="task-note">Covers all current + future subdomains automatically</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task done" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Team dashboard — 24 class themes dropdown</div>
+              <div class="task-note">Mind (8) + Body (8, incl. Aging Health) + Spirit (8) — confirmed built</div>
+            </div>
+            <span class="badge badge-done">Done ✓</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Apply Brand v2 across app + marketing surfaces</div>
+              <div class="task-note">Supersedes old ADA-color task — new palette pending contrast audit during brand guide build</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+          <div class="task" onclick="toggleTask(this,'launch')" data-sec="launch">
+            <div class="checkbox"></div>
+            <div class="task-content">
+              <div class="task-text">Confirm new Supabase project IDs via MCP</div>
+              <div class="task-note">Moves + Competition project IDs not yet visible via MCP — need to locate/confirm.</div>
+            </div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="card">
+      <div class="card-header" onclick="toggleCard('stack')">
+        <div class="card-title">
+          <span class="card-icon glyph-ocean">○</span>
+          <h3>Tech Stack</h3>
+        </div>
+        <span class="chevron" id="stack-chev">▼</span>
+      </div>
+      <div class="card-body" id="stack-body">
+        <div class="stack-grid">
+          <div class="stack-item">
+            <div class="tool-name">Atoms.dev</div>
+            <div class="tool-desc">AI + app builder</div>
+            <div class="tool-status" style="color:var(--gold)">⚠ JTW token — check every 30d</div>
+          </div>
+          <div class="stack-item">
+            <div class="tool-name">Supabase</div>
+            <div class="tool-desc">Org "PoleClass Pro" — Moves + Competition + -C (auth), RLS enabled</div>
+            <div class="tool-status" style="color:var(--gold)">⚠ New project IDs pending in MCP</div>
+          </div>
+          <div class="stack-item">
+            <div class="tool-name">Stripe</div>
+            <div class="tool-desc">Payments — Pro + Lite billing</div>
+            <div class="tool-status" style="color:var(--gold)">⚠ Needs integration</div>
+          </div>
+          <div class="stack-item">
+            <div class="tool-name">Claude AI</div>
+            <div class="tool-desc">Class generator + Spotify embed</div>
+            <div class="tool-status" style="color:var(--ocean)">● Connected</div>
+          </div>
+          <div class="stack-item">
+            <div class="tool-name">Make.com</div>
+            <div class="tool-desc">Notion → Supabase live sync, 15-min polling</div>
+            <div class="tool-status" style="color:var(--ocean)">● Running — scenario 5590229</div>
+          </div>
+          <div class="stack-item">
+            <div class="tool-name">Notion</div>
+            <div class="tool-desc">Moves Knowledge Graph (554) + planning</div>
+            <div class="tool-status" style="color:var(--ocean)">● Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE BACKLOG -->
+    <div class="card">
+      <div class="card-header" onclick="toggleCard('backlog')">
+        <div class="card-title">
+          <span class="card-icon glyph-gold">✦</span>
+          <h3>Feature Backlog</h3>
+        </div>
+        <span class="chevron" id="backlog-chev">▼</span>
+      </div>
+      <div class="card-body" id="backlog-body">
+        <div class="backlog-item"><span class="bullet">✦</span> Movement GPS™ — visual node-graph navigation of the move database</div>
+        <div class="backlog-item"><span class="bullet">✦</span> Interactive AI assistant panel — real-time move, transition + music suggestions</div>
+        <div class="backlog-item"><span class="bullet">✦</span> Settings page — admin views active API integrations + connection status</div>
+        <div class="backlog-item"><span class="bullet">✦</span> AI-powered chatbot for class plan suggestions</div>
+        <div class="backlog-item"><span class="bullet">✦</span> Multilingual capabilities (Iteration 4)</div>
+        <div class="backlog-item"><span class="bullet">✦</span> "Find your movement style" quiz (Free tier lead gen)</div>
+        <div class="backlog-item"><span class="bullet">✦</span> Mini choreography/combo sequence builder (Free tier)</div>
+      </div>
+    </div>
+
+    <!-- ADVISORY + GOALS -->
+    <div class="card full">
+      <div class="card-header" onclick="toggleCard('advisory')">
+        <div class="card-title">
+          <span class="card-icon glyph-lav">◈</span>
+          <h3>Advisory Council + Industry Goals</h3>
+        </div>
+        <span class="chevron" id="advisory-chev">▼</span>
+      </div>
+      <div class="card-body" id="advisory-body" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <div class="micro-head"><span class="glyph glyph-lav">◈</span>Council</div>
+          <div class="chips">
+            <div class="chip"><span class="dot dot-lav"></span> ACE Curriculum Expert</div>
+            <div class="chip"><span class="dot dot-lav"></span> Web App Developer</div>
+            <div class="chip"><span class="dot dot-lav"></span> Finance / Startup Expert</div>
+            <div class="chip"><span class="dot dot-ocean"></span> Clarissa — Pole Authority</div>
+          </div>
+        </div>
+        <div>
+          <div class="micro-head"><span class="glyph glyph-gold">△</span>North Star Goals</div>
+          <div class="backlog-item"><span class="bullet">✦</span> Industry standard in every country</div>
+          <div class="backlog-item"><span class="bullet">✦</span> Unify pole dance fitness through common language + formatting</div>
+          <div class="backlog-item"><span class="bullet">✦</span> ACE + AFA recognition as reputable pole programming</div>
+          <div class="backlog-item"><span class="bullet">✦</span> &lt;4 hrs/week lean ops after Iteration 4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div class="card full">
+      <div class="card-header" onclick="toggleCard('notes')">
+        <div class="card-title">
+          <span class="card-icon glyph-ocean">○</span>
+          <h3>Session Notes / Where We Left Off</h3>
+        </div>
+        <span class="chevron" id="notes-chev">▼</span>
+      </div>
+      <div class="card-body" id="notes-body">
+        <div class="notes-area">Session 7/24/26 — Brand Evolution Workshop:
+◈ Brand v2 APPROVED — "NASA + Sunset Sherbet": Midnight Navy foundation, Ocean/Coral/Gold/Lavender accents, Murecho + IBM Plex Sans
+◈ Repositioned: pole class planning tool → Movement Intelligence Platform™ (pole = Version 1 dataset)
+◈ Legacy pink/purple brand archived — reference only
+◈ Project Knowledge v2 written + posted to Google Drive
+◈ Dashboard rebuilt as first artifact of Brand v2
+◈ Prompts ready: full brand guide + Claude Design knowledge-graph logo
+◈ Database reframed: move library → Movement Knowledge Graph · flagship candidate: Movement GPS™
+
+Next up:
+→ Run the brand guide prompt, then the logo prompt (PoleClassPro_Brand_Prompts.md)
+→ Contrast-audit the new palette during brand guide build (ADA)
+→ Decide category language + icon/divider systems (dashboard Brand card)
+→ Continue Iteration 1: TLS/SSL fix, Stripe, auth (Apple sign-in queued)
+→ Homepage wireframe: system first, humans second</div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+
+  <div class="divider">✦ ✦ ✦</div>
+</div>
+
+<footer>
+  PoleClass Pro · Structured Visual Movement Education™ · Brand v2 · Dashboard refreshed July 24, 2026
+</footer>
+
+<script>
+  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+  const STORAGE_KEY = 'pcp-dashboard-v3';
+  const sections = { launch: 10, brand: 10 };
+
+  function toggleCard(id) {
+    const body = document.getElementById(id + '-body');
+    const chev = document.getElementById(id + '-chev');
+    if (!body) return;
+    const hidden = body.classList.toggle('hidden');
+    if (chev) chev.className = 'chevron ' + (hidden ? 'closed' : '');
+  }
+
+  function toggleTask(el, sec) {
+    el.classList.toggle('done');
+    saveProgress();
+    if (sec) updateSection(sec);
+    updateGlobal();
+  }
+
+  function updateSection(sec) {
+    const tasks = document.querySelectorAll(`[data-sec="${sec}"]`);
+    const done = document.querySelectorAll(`[data-sec="${sec}"].done`).length;
+    const total = tasks.length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const pctEl = document.getElementById(sec + '-pct');
+    const barEl = document.getElementById(sec + '-bar');
+    if (pctEl) pctEl.textContent = `${done}/${total}`;
+    if (barEl) barEl.style.width = pct + '%';
+  }
+
+  function updateGlobal() {
+    const allTasks = document.querySelectorAll('[data-sec]');
+    const done = document.querySelectorAll('[data-sec].done').length;
+    const total = allTasks.length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById('global-bar').style.width = pct + '%';
+    document.getElementById('global-pct-num').textContent = pct;
+    document.getElementById('done-count').textContent = done + ' tasks completed';
+    document.getElementById('total-count').textContent = 'of ' + total + ' total';
+  }
+
+  function saveProgress() {
+    const done = [];
+    document.querySelectorAll('[data-sec].done').forEach((el) => {
+      done.push(Array.from(document.querySelectorAll('[data-sec]')).indexOf(el));
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(done));
+  }
+
+  function loadProgress() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const all = document.querySelectorAll('[data-sec]');
+      saved.forEach(i => { if (all[i]) all[i].classList.add('done'); });
+    } catch(e) {}
+    Object.keys(sections).forEach(s => updateSection(s));
+    updateGlobal();
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all checkboxes?')) return;
+    document.querySelectorAll('[data-sec]').forEach(el => el.classList.remove('done'));
+    localStorage.removeItem(STORAGE_KEY);
+    Object.keys(sections).forEach(s => updateSection(s));
+    updateGlobal();
+  }
+
+  loadProgress();
+</script>
+</body>
+</html>

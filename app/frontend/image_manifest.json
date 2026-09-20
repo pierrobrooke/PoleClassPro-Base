@@ -1,0 +1,58 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63inmyaafmq/hero-pole-dancer-silhouette.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63inmyaafmq/hero-pole-dancer-silhouette.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63inmyaafmq/hero-pole-dancer-silhouette.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Elegant pole dancer silhouette performing a graceful aerial pose, dramatic purple and hot pink gradient lighting, dark background with soft bokeh lights, feminine and luxurious atmosphere, professional fitness aesthetic",
+      "style": "photorealistic",
+      "filename": "hero-pole-dancer-silhouette.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63imwiaafnq/feature-silk-texture-purple.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63imwiaafnq/feature-silk-texture-purple.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63imwiaafnq/feature-silk-texture-purple.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Abstract flowing silk fabric texture in deep purple and lavender tones, soft ethereal lighting, luxurious and feminine feel, suitable as a subtle background overlay",
+      "style": "photorealistic",
+      "filename": "feature-silk-texture-purple.jpg"
+    },
+    {
+      "status": "failed",
+      "path": "",
+      "absolute_path": "",
+      "url": "",
+      "message": "Image generation failed: Image creation failed (oneapi): HTTP 400 error: {\"error\":{\"message\":\"Your request was rejected by the safety system. If you believe this is an error, contact us at Azure support ticket and include the request ID 14a46873-ba02-4407-b5ce-42e0a4268741. safety_violations=[sexual]. (request id: 2026050515114269052827277052637)\",\"type\":\"image_generation_user_error\",\"param\":\"\",\"code\":\"moderation_blocked\"}}",
+      "description": "Artistic pole dance pose with dramatic side lighting, dancer in athletic wear performing an inverted move on a chrome pole, deep purple and pink color grading, professional studio setting",
+      "style": "photorealistic",
+      "filename": "moves-artistic-pole-pose.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63iexiaafla/dashboard-geometric-pattern.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63iexiaafla/dashboard-geometric-pattern.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63iexiaafla/dashboard-geometric-pattern.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Subtle geometric pattern with interlocking hexagons and flowing curves in soft lavender and white tones, minimal and elegant, suitable as a dashboard background texture",
+      "style": "minimalist",
+      "filename": "dashboard-geometric-pattern.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63jezaaafla/moves-neon-light-trails.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63jezaaafla/moves-neon-light-trails.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/1193127/2026-05-05/n63jezaaafla/moves-neon-light-trails.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Abstract purple and pink neon light trails forming graceful curved lines against a dark background, dynamic movement, artistic and elegant, fitness energy aesthetic",
+      "style": "photorealistic",
+      "filename": "moves-neon-light-trails.jpg"
+    }
+  ],
+  "success_count": 1,
+  "failed_count": 0,
+  "message": "Generated 1/1 images"
+}

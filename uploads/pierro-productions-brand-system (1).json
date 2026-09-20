@@ -1,0 +1,189 @@
+{
+  "brand": "Pierro Productions",
+  "system_name": "The Butterfly System",
+  "version": "1.0",
+  "last_updated": "2026-06-27",
+
+  "positioning": {
+    "category": "Luxury transformation company",
+    "visual_ratio": {
+      "editorial_butterfly_luxury": 0.70,
+      "quiet_coastal": 0.20,
+      "futurist_motion": 0.10
+    },
+    "tension": ["soft + powerful", "organic + editorial", "feminine + controlled"],
+    "gender_coding": "intentionally_feminine_coded",
+    "gender_coding_note": "Not gender-neutral. Supersedes any prior gender-inclusive-language default for umbrella/sub-brand identity work.",
+    "presenting_as": ["creative director", "systems thinker", "elegant operator", "turns identity into experience"],
+    "risk": "Can read as too feminine if overused as decoration",
+    "risk_mitigation": "Use feminine traits as vocabulary, not the word 'feminine' itself"
+  },
+
+  "voice_pillars": [
+    { "name": "Receptivity", "description": "Taking in a person or situation fully before rushing to fix it" },
+    { "name": "Intuitive pattern-sensing", "description": "Reading what's true before the data catches up" },
+    { "name": "Cyclical thinking", "description": "Building in seasons, not just sprints" },
+    { "name": "Relational intelligence", "description": "Weighing how a decision lands on people, not only whether it's correct" },
+    { "name": "Embodiment", "description": "Trusting the body as a source of information, not an afterthought to the mind" },
+    { "name": "Softness held with edge", "description": "Gentle and unshakeable in the same sentence" }
+  ],
+
+  "master_palette": {
+    "forest_shade":     { "rgb": [143, 172, 126], "hex": "#8FAC7E", "signals": ["growth", "wisdom", "calm authority", "creative maturity"], "usage_percent": 20, "use": ["backgrounds", "accents", "hover states"] },
+    "gunpowder":        { "rgb": [24, 24, 26],    "hex": "#18181A", "signals": ["luxury", "protection", "editorial confidence", "premium pricing"], "usage_percent": 40, "use": ["primary typography", "dark sections"] },
+    "warm_porcelain":   { "rgb": [246, 229, 211], "hex": "#F6E5D3", "signals": ["human warmth", "accessibility", "feminine softness"], "usage_percent": 25, "use": ["backgrounds"] },
+    "electric_orchid":  { "rgb": [231, 55, 136],  "hex": "#E73788", "signals": ["visibility", "bold feminine energy", "memorability", "movement"], "usage_percent": 10, "use": ["CTAs", "micro-interactions", "highlights"] },
+    "veiled_rose":      { "rgb": [248, 204, 201], "hex": "#F8CCC9", "signals": ["luxury", "intimacy", "soft expression"], "usage_percent": 5,  "use": ["UI details"] }
+  },
+
+  "sub_brands": {
+    "cotton_candy_revolt": {
+      "palette_percent": { "forest_shade": 0, "gunpowder": 30, "warm_porcelain": 10, "electric_orchid": 35, "veiled_rose": 25 },
+      "rationale": "Candy color with teeth. No sage; this brand isn't about calm wisdom.",
+      "headline_font": "Bricolage Grotesque",
+      "body_font": "Switzer",
+      "accent_mark": "scatter_to_solid",
+      "accent_mark_usage": "hover states on cards and CTAs",
+      "lockup": { "display_word": "COTTON CANDY", "tracked_word": "REVOLT" },
+      "voice_line": "Sweet on the surface, talking back underneath."
+    },
+    "the_frequency_blueprint": {
+      "palette_percent": { "forest_shade": 35, "gunpowder": 20, "warm_porcelain": 35, "electric_orchid": 5, "veiled_rose": 5 },
+      "rationale": "Leads with growth and warmth. Orchid only as a spark for 'frequency.'",
+      "headline_font": "Fraunces",
+      "body_font": "Switzer",
+      "accent_mark": null,
+      "accent_mark_usage": "none yet; uses primary mark only",
+      "lockup": { "display_word": "THE FREQUENCY", "tracked_word": "BLUEPRINT" },
+      "voice_line": "A practice for people who already feel the pull to evolve.",
+      "absorbed_brands": ["The Frequency Store"]
+    },
+    "zensual_mastery": {
+      "palette_percent": { "forest_shade": 5, "gunpowder": 30, "warm_porcelain": 20, "electric_orchid": 10, "veiled_rose": 35 },
+      "rationale": "Intimacy-led. Dark reads as sophistication, not severity.",
+      "headline_font": "Cormorant",
+      "headline_font_note": "carried over from earlier brand work, kept intentionally",
+      "body_font": "Switzer",
+      "accent_mark": "convergence_dot",
+      "accent_mark_usage": "ambient corner mark, page transitions",
+      "lockup": { "display_word": "ZENSUAL", "tracked_word": "MASTERY" },
+      "voice_line": "Intimacy, held with sophistication rather than softness alone."
+    },
+    "pole_class_pro": {
+      "palette_percent": { "forest_shade": 5, "gunpowder": 40, "warm_porcelain": 10, "electric_orchid": 25, "veiled_rose": 20 },
+      "rationale": "Strength and visible movement. Minimal sage; this is power, not calm.",
+      "headline_font": "Big Shoulders Display",
+      "body_font": "Switzer",
+      "accent_mark": null,
+      "accent_mark_usage": "none yet; uses primary mark only",
+      "lockup": { "display_word": "POLE CLASS", "tracked_word": "PRO" },
+      "voice_line": "Strength and visible movement, no apology for either."
+    },
+    "web_development_and_design": {
+      "palette_percent": { "forest_shade": 20, "gunpowder": 45, "warm_porcelain": 25, "electric_orchid": 8, "veiled_rose": 2 },
+      "rationale": "Closest to master. Dark-forward, B2B-credible.",
+      "headline_font": "Space Grotesk",
+      "body_font": "Switzer",
+      "accent_mark": "vein_knot",
+      "accent_mark_usage": "loading states, technical contexts",
+      "lockup": { "display_word": "WEB DEVELOPMENT", "tracked_word": "& DESIGN" },
+      "voice_line": "The most B2B-credible room in the house, still unmistakably the same house."
+    }
+  },
+
+  "future_brands": {
+    "corporate_soft_skills_consulting": { "palette_percent": { "forest_shade": 40, "warm_porcelain": 40, "gunpowder": 15, "electric_orchid_and_veiled_rose_combined": 5 } },
+    "workshops": { "palette_percent": { "veiled_rose": 35, "electric_orchid": 25, "warm_porcelain": 25, "gunpowder": 15 } },
+    "licensing": { "palette_percent": { "gunpowder": 55, "warm_porcelain": 40, "everything_else_combined": 5 }, "note": "black + ivory, near-monochrome" }
+  },
+
+  "typography": {
+    "master": {
+      "headline_font": "Prime Serif",
+      "headline_font_source": "Envato Elements",
+      "headline_font_license_status": "not yet licensed",
+      "headline_font_substitute": "Fraunces",
+      "headline_font_substitute_source": "Google Fonts, free",
+      "secondary_font": "Söhne",
+      "secondary_font_source": "Klim Type Foundry",
+      "secondary_font_license_status": "not yet licensed",
+      "secondary_font_substitute": "Switzer",
+      "secondary_font_substitute_source": "Fontshare, free, ITF Free Font License"
+    },
+    "body_font_system_wide": {
+      "font": "Switzer",
+      "source": "https://www.fontshare.com/fonts/switzer",
+      "license": "ITF Free Font License, free for commercial use",
+      "backup_alternative": "General Sans",
+      "backup_alternative_source": "Fontshare, free",
+      "excluded_options": ["Inter", "IBM Plex Sans"]
+    },
+    "headline_fonts_by_brand": {
+      "pierro_productions": "Prime Serif (Fraunces as free stand-in)",
+      "cotton_candy_revolt": "Bricolage Grotesque",
+      "the_frequency_blueprint": "Fraunces",
+      "zensual_mastery": "Cormorant",
+      "pole_class_pro": "Big Shoulders Display",
+      "web_development_and_design": "Space Grotesk"
+    },
+    "rule": "No two brands share a headline font. Body copy is Switzer everywhere, no exceptions."
+  },
+
+  "logo_lockup_formula": {
+    "structure": "[key word, brand's own headline font] / [remaining word(s), tracked uppercase Switzer]",
+    "pierro_productions": { "display_word": "PIERRO", "display_font": "Prime Serif", "tracked_word": "PRODUCTIONS", "tracked_font": "Switzer" }
+  },
+
+  "icon_system": {
+    "design_principle": "No full butterfly icon anywhere. Abstraction only, drawn from where the green-dappled scales meet the black-ringed pink.",
+    "primary_mark": {
+      "name": "eye_mark",
+      "usage": ["favicon", "app icon", "social avatar", "header mark", "all brands"],
+      "structure": "three concentric rings: faint outer boundary, dotted forest-shade ring (36s rotation), veiled-rose ring, electric-orchid pulsing core",
+      "core_pulse_animation": { "scale": [1, 1.25], "opacity": [1, 0.7], "duration_s": 3.2, "easing": "ease-in-out", "loop": true }
+    },
+    "accent_marks": {
+      "scatter_to_solid": { "assigned_to": "cotton_candy_revolt", "usage": "hover states on cards and CTAs" },
+      "vein_knot": { "assigned_to": "web_development_and_design", "usage": "loading states, technical contexts" },
+      "convergence_dot": { "assigned_to": "zensual_mastery", "usage": "ambient corner mark, page transitions" }
+    },
+    "unassigned": ["the_frequency_blueprint", "pole_class_pro"],
+    "accessibility": "all marks must respect prefers-reduced-motion, dropping to static with no animation"
+  },
+
+  "motion_system": {
+    "signature_transition": {
+      "name": "vein_draw_and_pulse",
+      "used_on": ["first load", "every page-to-page navigation"],
+      "sequence": [
+        { "step": "ground", "value": "gunpowder background" },
+        { "step": "line_draw", "property": "stroke-dashoffset", "from": 1, "to": 0, "duration_ms": 450, "easing": "cubic-bezier(0.65, 0, 0.35, 1)" },
+        { "step": "hold", "duration_ms": 150 },
+        { "step": "pulse", "color": "electric_orchid", "location": "line terminus" },
+        { "step": "reveal", "duration_ms": 300, "method": "fade" }
+      ],
+      "total_duration_ms": 900,
+      "feel": "editorial, premium, deliberate"
+    },
+    "ambient_sitewide": {
+      "iridescent_edge": { "trigger": "hover", "applies_to": ["buttons", "cards"], "effect": "moving pink-to-green reflective edge", "feel": "high-end fashion" },
+      "breath_bloom": { "trigger": "hover", "applies_to": ["images", "CTAs"], "effect": "scale 1 to 1.02 and settle", "feel": "premium calm" }
+    },
+    "ambient_desktop_only": {
+      "flutter_cursor": { "effect": "wing-shape distortion follows cursor", "displacement_percent": 3, "feel": "alive, subtle" }
+    },
+    "reserved_for_flagship_moments": {
+      "wing_reveal": { "method": "SVG mask, two abstract wing shapes unfold", "duration_ms": 600, "easing": "ease-in-out", "use_case": "launch pages, major reveals only, never routine nav" },
+      "vein_transition": { "method": "SVG morph + GSAP, pages split like wing veins", "feel": "luxury tech", "use_case": "rare, flagship moments only" }
+    }
+  },
+
+  "open_items": [
+    "Prime Serif and Söhne not yet licensed; Fraunces and Switzer are working substitutes",
+    "The Frequency Blueprint and Pole Class Pro have no bespoke accent mark yet",
+    "Vector logo lockup files not yet produced",
+    "Photography/imagery direction undecided; defaulting to abstraction-only",
+    "Accessibility/contrast pass needed on real layouts, especially electric_orchid on gunpowder and body text on veiled_rose",
+    "The Frequency Store no longer exists as a standalone brand; folded under The Frequency Blueprint"
+  ]
+}

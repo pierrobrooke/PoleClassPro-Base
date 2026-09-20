@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Murecho:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Brand v2 · "NASA + Sunset Sherbet" — Dark-first ── */
+    --background: 216 22% 11%;
+    --foreground: 30 33% 96%;
+
+    --card: 213 20% 17%;
+    --card-foreground: 30 33% 96%;
+
+    --popover: 213 20% 14%;
+    --popover-foreground: 30 33% 96%;
+
+    --primary: 179 52% 65%;
+    --primary-foreground: 216 22% 11%;
+
+    --secondary: 213 20% 17%;
+    --secondary-foreground: 30 33% 96%;
+
+    --muted: 213 18% 22%;
+    --muted-foreground: 212 16% 72%;
+
+    --accent: 14 100% 74%;
+    --accent-foreground: 216 22% 11%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 212 16% 72% / 0.14;
+    --input: 212 16% 72% / 0.14;
+    --ring: 179 52% 65%;
+
+    --radius: 0.625rem;
+    --spacing: 0.25rem;
+
+    --shadow-2xs: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.25);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 1px 3px rgba(0,0,0,0.35);
+    --shadow-md: 0 2px 6px rgba(0,0,0,0.35);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-xl: 0 8px 20px rgba(0,0,0,0.45);
+    --shadow-2xl: 0 12px 30px rgba(0,0,0,0.5);
+
+    --sidebar-background: 213 20% 14%;
+    --sidebar-foreground: 30 33% 96%;
+    --sidebar-primary: 179 52% 65%;
+    --sidebar-primary-foreground: 216 22% 11%;
+    --sidebar-accent: 14 100% 74%;
+    --sidebar-accent-foreground: 216 22% 11%;
+    --sidebar-border: 212 16% 72% / 0.14;
+    --sidebar-ring: 179 52% 65%;
+  }
+
+  .dark {
+    --background: 216 22% 11%;
+    --foreground: 30 33% 96%;
+
+    --card: 213 20% 17%;
+    --card-foreground: 30 33% 96%;
+
+    --popover: 213 20% 14%;
+    --popover-foreground: 30 33% 96%;
+
+    --primary: 179 52% 65%;
+    --primary-foreground: 216 22% 11%;
+
+    --secondary: 213 20% 17%;
+    --secondary-foreground: 30 33% 96%;
+
+    --muted: 213 18% 22%;
+    --muted-foreground: 212 16% 72%;
+
+    --accent: 14 100% 74%;
+    --accent-foreground: 216 22% 11%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 212 16% 72% / 0.14;
+    --input: 212 16% 72% / 0.14;
+    --ring: 179 52% 65%;
+
+    --shadow-2xs: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.25);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 1px 3px rgba(0,0,0,0.35);
+    --shadow-md: 0 2px 6px rgba(0,0,0,0.35);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-xl: 0 8px 20px rgba(0,0,0,0.45);
+    --shadow-2xl: 0 12px 30px rgba(0,0,0,0.5);
+
+    --sidebar-background: 213 20% 14%;
+    --sidebar-foreground: 30 33% 96%;
+    --sidebar-primary: 179 52% 65%;
+    --sidebar-primary-foreground: 216 22% 11%;
+    --sidebar-accent: 14 100% 74%;
+    --sidebar-accent-foreground: 216 22% 11%;
+    --sidebar-border: 212 16% 72% / 0.14;
+    --sidebar-ring: 179 52% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #F7F4EF;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Murecho', sans-serif;
+    color: #F7F4EF;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+
+  p, span, li, a, label, td, th, div {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  code, pre, .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+/* ── Brand accent utilities ── */
+.text-ocean { color: #73D9D6; }
+.text-coral { color: #FF8F7A; }
+.text-gold { color: #FFC870; }
+.text-lavender { color: #B8B3FF; }
+.text-ivory { color: #F7F4EF; }
+.text-secondary { color: #B8C0CC; }
+
+.bg-navy { background-color: #151A22; }
+.bg-surface { background-color: #1E2530; }
+.bg-surface2 { background-color: #283241; }
+.bg-card-surface { background-color: #313D4D; }
+
+.border-brand { border-color: rgba(184,192,204,0.14); }
+
+/* ── Gradient utilities ── */
+.gradient-coral-gold {
+  background: linear-gradient(135deg, #FF8F7A, #FFC870);
+}
+
+.gradient-ocean-lavender {
+  background: linear-gradient(135deg, #73D9D6, #B8B3FF);
+}
+
+/* ── Node graph glow animation ── */
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-node-pulse {
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+/* ── Pathway color coding ── */
+.pathway-beginner { color: #FF8F7A; border-color: #FF8F7A; }
+.pathway-intermediate { color: #B8B3FF; border-color: #B8B3FF; }
+.pathway-advanced { color: #73D9D6; border-color: #73D9D6; }
+
+/* ── Card hover effect ── */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  border-color: rgba(115,217,214,0.3);
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1E2530;
+}
+::-webkit-scrollbar-thumb {
+  background: #313D4D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #73D9D6;
+}

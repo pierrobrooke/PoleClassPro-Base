@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#FFFFFF;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>PoleClass Pro — Brand Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #FFFFFF !important;
+  color: #140B26 !important;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+.page-wrap { background: #FFFFFF; min-height: 100vh; width: 100%; }
+
+.skip-link {
+  position: absolute; top: -48px; left: 0;
+  background: #662490; color: #FFFFFF;
+  padding: 10px 18px; font-weight: 600; font-size: 14px;
+  z-index: 999; text-decoration: none;
+  border-radius: 0 0 8px 0; transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+/* HERO */
+.hero {
+  background: #140B26;
+  padding: 72px 32px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 65%, rgba(102,36,144,.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 78% 28%, rgba(255,85,157,.3) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #FF8CC2; margin-bottom: 14px; position: relative;
+}
+.hero h1 {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 900;
+  color: #FFFFFF; line-height: 1.1; margin-bottom: 14px; position: relative;
+  letter-spacing: -.01em;
+}
+.hero h1 em { color: #FF8CC2; font-style: italic; }
+.hero-sub { color: rgba(255,255,255,.85); font-size: 14px; max-width: 480px; margin: 0 auto; position: relative; }
+
+/* NAV */
+.toc {
+  background: #FFFFFF; border-bottom: 2px solid #E8D5F0;
+  padding: 0 24px; position: sticky; top: 0; z-index: 100;
+  display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.toc::-webkit-scrollbar { display: none; }
+.toc a {
+  display: block; padding: 14px 16px;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #2D1B3D; text-decoration: none;
+  border-bottom: 3px solid transparent; white-space: nowrap;
+  transition: color .2s, border-color .2s; background: #FFFFFF;
+  font-family: 'Barlow', sans-serif;
+}
+.toc a:hover, .toc a:focus { color: #662490; border-bottom-color: #662490; outline: none; }
+.toc a:focus-visible { outline: 2px solid #662490; outline-offset: -2px; }
+
+/* SECTIONS */
+.section {
+  background: #FFFFFF; color: #140B26;
+  max-width: 880px; margin: 0 auto;
+  padding: 60px 28px; border-bottom: 1px solid #E8D5F0;
+}
+.section:last-child { border-bottom: none; }
+
+.section-label {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #BF1E6E; margin-bottom: 8px; display: block;
+}
+.section h2 {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900;
+  color: #662490; margin-bottom: 18px; line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.section > p {
+  color: #140B26; max-width: 680px;
+  margin-bottom: 14px; font-size: 14px; line-height: 1.7;
+}
+
+/* COLOR SWATCHES */
+.color-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 16px; margin-top: 28px;
+}
+.swatch-card { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 14px rgba(20,11,38,.11); background: #FFFFFF; }
+.swatch-block { height: 88px; display: flex; align-items: flex-end; padding: 10px 12px; }
+.swatch-hex {
+  font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(0,0,0,.5); color: #FFFFFF; letter-spacing: .04em;
+}
+.swatch-hex.light { background: rgba(102,36,144,.15); color: #662490; }
+.swatch-meta { padding: 10px 12px 14px; background: #FFFFFF; }
+.swatch-name { font-weight: 700; font-size: 13px; color: #140B26; margin-bottom: 2px; font-family: 'Barlow', sans-serif; }
+.swatch-role { font-size: 12px; color: #4A3560; line-height: 1.45; }
+.swatch-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 600; margin-top: 7px;
+  padding: 2px 9px; border-radius: 20px;
+}
+.badge-aaa { background: #D4EDDA; color: #155724; }
+.badge-aa  { background: #D1ECF1; color: #0C5460; }
+.badge-dec { background: #FFF3CD; color: #856404; }
+
+/* ADA TABLE */
+.ada-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13px; background: #FFFFFF; }
+.ada-table th { background: #140B26; color: #FFFFFF; padding: 11px 14px; text-align: left; font-weight: 700; font-size: 12px; font-family: 'Barlow', sans-serif; letter-spacing: .04em; }
+.ada-table td { padding: 10px 14px; border-bottom: 1px solid #E8D5F0; vertical-align: middle; color: #140B26; background: #FFFFFF; font-size: 13px; }
+.ada-table tr:nth-child(even) td { background: #F4EEF9; color: #140B26; }
+.ada-table tr.retired { opacity: .55; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+.dot-pass { background: #28A745; }
+.dot-fail { background: #DC3545; }
+.preview-combo { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 5px; font-size: 12px; font-weight: 600; }
+
+/* TYPOGRAPHY */
+.type-samples { margin-top: 28px; display: flex; flex-direction: column; background: #FFFFFF; }
+.type-row {
+  display: grid; grid-template-columns: 170px 1fr; gap: 20px;
+  align-items: start; padding: 24px 0; border-bottom: 1px solid #E8D5F0; background: #FFFFFF;
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: #4A3560; line-height: 1.85; background: #FFFFFF; }
+.type-meta strong { display: block; color: #140B26; font-size: 12px; margin-bottom: 3px; font-family: 'DM Sans', sans-serif; }
+
+/* LOGO SECTION */
+.logo-note {
+  background: #FFF0F6; border-left: 4px solid #BF1E6E;
+  border-radius: 0 10px 10px 0; padding: 14px 18px;
+  margin-bottom: 24px; font-size: 13px; color: #140B26; line-height: 1.6;
+}
+.logo-note strong { color: #BF1E6E; font-family: 'Barlow', sans-serif; font-size: 14px; display: block; margin-bottom: 4px; }
+.logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 4px; }
+.logo-cell {
+  border-radius: 14px; padding: 20px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  border: 1px solid #E8D5F0;
+}
+.logo-cell-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 6px;
+  background: #F4EEF9; color: #662490; text-align: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* COMPONENTS */
+.usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+@media (max-width: 600px) { .usage-grid { grid-template-columns: 1fr; } }
+.usage-card { border-radius: 12px; overflow: hidden; border: 1px solid #E8D5F0; background: #FFFFFF; }
+.usage-card-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; padding: 9px 14px; background: #F4EEF9; color: #2D1B3D; border-bottom: 1px solid #E8D5F0; font-family: 'Barlow', sans-serif; }
+.usage-card-body { padding: 18px; background: #FFFFFF; }
+
+.callout-purple { background: #662490; color: #FFFFFF; border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; }
+.callout-purple h3 { font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 5px; }
+.callout-purple p { font-size: 13px; color: rgba(255,255,255,.92); margin: 0; line-height: 1.6; }
+
+.callout-pink-tint { background: #FFF0F6; border-left: 4px solid #BF1E6E; border-radius: 0 10px 10px 0; padding: 14px 18px; margin-bottom: 10px; }
+.callout-pink-tint h3 { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: #BF1E6E; margin-bottom: 4px; }
+.callout-pink-tint p { font-size: 13px; color: #140B26; margin: 0; line-height: 1.6; }
+
+.callout-bad { background: #FF559D; border-radius: 10px; padding: 16px 18px; margin-bottom: 6px; position: relative; }
+.callout-bad::after {
+  content: '⚠ FAILS ADA — 2.3:1'; position: absolute; top: -10px; right: 10px;
+  background: #B00020; color: #FFFFFF; font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px; font-family: 'DM Mono', monospace;
+}
+.callout-bad h3 { font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 5px; }
+.callout-bad p { font-size: 13px; color: #FFFFFF; margin: 0; }
+.retired-note { font-size: 12px; color: #BF1E6E; font-weight: 700; text-align: center; margin-top: 6px; display: block; background: #FFFFFF; }
+
+.chip-row { display: flex; flex-direction: column; gap: 9px; padding-top: 6px; background: #FFFFFF; }
+.chip { display: inline-block; width: fit-content; font-size: 12px; font-weight: 700; padding: 4px 13px; border-radius: 20px; font-family: 'Barlow', sans-serif; letter-spacing: .04em; }
+
+/* PHOTOGRAPHY */
+.photo-grade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+@media (max-width: 580px) { .photo-grade-grid { grid-template-columns: 1fr; } }
+.photo-card { border-radius: 12px; overflow: hidden; border: 1px solid #E8D5F0; background: #FFFFFF; }
+.photo-card-label { padding: 9px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: #F4EEF9; border-bottom: 1px solid #E8D5F0; color: #2D1B3D; font-family: 'Barlow', sans-serif; }
+.photo-swatch-row { display: flex; padding: 12px; gap: 9px; flex-wrap: wrap; background: #FFFFFF; }
+.photo-swatch { width: 38px; height: 38px; border-radius: 7px; border: 2px solid rgba(0,0,0,.1); flex-shrink: 0; }
+.photo-spec { padding: 0 12px 14px; font-size: 13px; color: #140B26; line-height: 1.75; background: #FFFFFF; }
+.photo-spec code { font-family: 'DM Mono', monospace; background: #F4EEF9; color: #662490; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+.avoid-spec { padding: 12px; font-size: 13px; color: #5C0A12; line-height: 1.9; background: #FFFFFF; }
+
+/* BUTTONS */
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; align-items: center; background: #FFFFFF; }
+.btn {
+  font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 14px;
+  padding: 11px 22px; border-radius: 8px; border: none; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  transition: filter .2s, transform .15s; letter-spacing: .02em;
+}
+.btn:hover { filter: brightness(.88); transform: translateY(-1px); }
+.btn:focus-visible { outline: 3px solid #662490; outline-offset: 3px; }
+.btn-primary   { background: #662490; color: #FFFFFF; }
+.btn-secondary { background: transparent; color: #662490; border: 2px solid #662490; }
+.btn-cta       { background: #BF1E6E; color: #FFFFFF; }
+.btn-ghost     { background: #FFF0F6; color: #BF1E6E; border: 2px solid #BF1E6E; }
+
+/* RULES */
+.rule-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; background: #FFFFFF; }
+.rule-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #140B26; line-height: 1.6; background: #FFFFFF; }
+.rule-list li .icon { flex-shrink: 0; font-size: 16px; line-height: 1.4; }
+
+hr.divider { border: none; border-top: 1px solid #E8D5F0; margin: 24px 0; }
+
+.note-box { background: #662490; color: #FFFFFF; border-radius: 12px; padding: 20px 22px; margin-top: 24px; }
+.note-box h3 { font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 7px; }
+.note-box p { font-size: 13px; color: rgba(255,255,255,.9); margin: 0; line-height: 1.65; }
+
+.brand-footer { background: #140B26; color: rgba(255,255,255,.65); text-align: center; padding: 28px; font-size: 12px; font-family: 'DM Mono', monospace; letter-spacing: .07em; }
+.brand-footer strong { color: #FF8CC2; }
+
+@media (max-width: 600px) {
+  .section { padding: 44px 20px; }
+  .type-row { grid-template-columns: 1fr; gap: 10px; }
+  .toc { padding: 0 12px; }
+  .color-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── SHARED DANCER PATHS (referenced by all logo variants) ── */
+/* The dancer SVG uses scoped class names per variant to avoid conflicts */
+</style>
+</head>
+<body style="background:#FFFFFF !important; color:#140B26 !important;">
+<div class="page-wrap">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <p class="hero-eyebrow">Brand Identity System · 2026</p>
+  <h1>PoleClass <em>Pro</em></h1>
+  <p class="hero-sub">Visual language, color system, typography, and ADA compliance guide for instructors, developers, and designers.</p>
+</header>
+
+<!-- NAV -->
+<nav class="toc" aria-label="Brand guide sections">
+  <a href="#colors">Colors</a>
+  <a href="#ada">ADA</a>
+  <a href="#typography">Type</a>
+  <a href="#logo">Logo</a>
+  <a href="#components">Components</a>
+  <a href="#photos">Photos</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#rules">Rules</a>
+</nav>
+
+<main id="main" style="background:#FFFFFF !important; color:#140B26 !important;">
+
+<!-- ═══════════ 1. COLORS ═══════════ -->
+<section class="section" id="colors" aria-labelledby="h-colors" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 01</span>
+  <h2 id="h-colors">Color System</h2>
+  <p style="color:#140B26;">Extracted directly from the PoleClass Pro SVG logo. Each color has a defined role and a hard rule about where it may and may not appear in UI contexts.</p>
+
+  <div class="color-grid">
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#662490;"><span class="swatch-hex">#662490</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Deep Purple</div>
+        <div class="swatch-role">Headings · Nav · Primary CTA · Callout backgrounds</div>
+        <span class="swatch-badge badge-aaa">✓ AAA on white 7.2:1</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#BF1E6E;"><span class="swatch-hex">#BF1E6E</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Rose (ADA Safe)</div>
+        <div class="swatch-role">Links · Borders · Secondary CTAs · Accent text</div>
+        <span class="swatch-badge badge-aa">✓ AA on white 4.7:1</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FF559D;"><span class="swatch-hex">#FF559D</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Hot Pink</div>
+        <div class="swatch-role">Decorative only — dividers, icon fills. Never text on white.</div>
+        <span class="swatch-badge badge-dec">⚠ Decorative only</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FF7CC1;"><span class="swatch-hex">#FF7CC1</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Candy Pink <span style="font-size:10px;color:#BF1E6E;font-weight:700;">★ Logo</span></div>
+        <div class="swatch-role">Logo detail only (cls-6) — midtone between Hot Pink and Blush.</div>
+        <span class="swatch-badge badge-dec">⚠ Logo use only</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FF8CC2;"><span class="swatch-hex">#FF8CC2</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Blush Pink</div>
+        <div class="swatch-role">Decorative · Hover states on dark backgrounds</div>
+        <span class="swatch-badge badge-dec">⚠ Decorative only</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FFF0F6; border:1px solid #F0C8E0;"><span class="swatch-hex light">#FFF0F6</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Pink Tint</div>
+        <div class="swatch-role">Callout card backgrounds · Highlight zones</div>
+        <span class="swatch-badge badge-aaa">✓ AAA with dark text 18:1</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#140B26;"><span class="swatch-hex">#140B26</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Near Black</div>
+        <div class="swatch-role">Body text · Dark hero backgrounds · Footer</div>
+        <span class="swatch-badge badge-aaa">✓ AAA on white 18.5:1</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#F4EEF9;"><span class="swatch-hex light">#F4EEF9</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">Lavender Tint</div>
+        <div class="swatch-role">Card backgrounds · Table alternating rows</div>
+        <span class="swatch-badge badge-aaa">✓ AAA with dark text</span>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FFFFFF; border:1px solid #E8D5F0;"><span class="swatch-hex light">#FFFFFF</span></div>
+      <div class="swatch-meta">
+        <div class="swatch-name">White</div>
+        <div class="swatch-role">Primary page background · Card surfaces</div>
+        <span class="swatch-badge badge-aaa">✓ Base surface</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 2. ADA ═══════════ -->
+<section class="section" id="ada" aria-labelledby="h-ada" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 02</span>
+  <h2 id="h-ada">ADA / WCAG 2.1 Compliance</h2>
+  <p style="color:#140B26;">WCAG 2.1 AA requires 4.5:1 for normal text and 3:1 for large text. <strong>The original hot pink on white failed at 2.3:1.</strong> Removed from all functional UI contexts.</p>
+
+  <table class="ada-table" aria-label="Color contrast compliance">
+    <thead>
+      <tr>
+        <th scope="col">Combination</th>
+        <th scope="col">Ratio</th>
+        <th scope="col">Result</th>
+        <th scope="col">Use Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="preview-combo" style="background:#662490;color:#fff;">#662490 on White</span></td>
+        <td><strong>7.2:1</strong></td>
+        <td><span class="dot dot-pass"></span>AAA</td>
+        <td>Headings, nav, primary buttons</td>
+      </tr>
+      <tr>
+        <td><span class="preview-combo" style="background:#BF1E6E;color:#fff;">#BF1E6E on White</span></td>
+        <td><strong>4.7:1</strong></td>
+        <td><span class="dot dot-pass"></span>AA</td>
+        <td>Links, borders, secondary CTAs</td>
+      </tr>
+      <tr>
+        <td><span class="preview-combo" style="background:#FFFFFF;color:#140B26;border:1px solid #ccc;">#140B26 on White</span></td>
+        <td><strong>18.5:1</strong></td>
+        <td><span class="dot dot-pass"></span>AAA</td>
+        <td>All body text</td>
+      </tr>
+      <tr>
+        <td><span class="preview-combo" style="background:#140B26;color:#FFFFFF;">White on Near Black</span></td>
+        <td><strong>18.5:1</strong></td>
+        <td><span class="dot dot-pass"></span>AAA</td>
+        <td>Hero, footer, dark callouts</td>
+      </tr>
+      <tr>
+        <td><span class="preview-combo" style="background:#662490;color:#fff;">White on Purple</span></td>
+        <td><strong>7.2:1</strong></td>
+        <td><span class="dot dot-pass"></span>AAA</td>
+        <td>Purple callout boxes, badges</td>
+      </tr>
+      <tr>
+        <td><span class="preview-combo" style="background:#FFF0F6;color:#140B26;border:1px solid #f0c8e0;">Dark on Pink Tint</span></td>
+        <td><strong>18.6:1</strong></td>
+        <td><span class="dot dot-pass"></span>AAA</td>
+        <td>Highlight callout boxes</td>
+      </tr>
+      <tr class="retired">
+        <td><span class="preview-combo" style="background:#FF559D;color:#fff;">White on Hot Pink</span></td>
+        <td><strong>2.3:1</strong></td>
+        <td><span class="dot dot-fail"></span>FAIL</td>
+        <td>❌ RETIRED — do not use</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════ 3. TYPOGRAPHY ═══════════ -->
+<section class="section" id="typography" aria-labelledby="h-type" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 03</span>
+  <h2 id="h-type">Typography System</h2>
+  <p style="color:#140B26;">Barlow carries bold, athletic confidence across all headings and the logo wordmark. DM Sans handles all body text with clean readability. DM Mono for labels and code.</p>
+
+  <div class="type-samples">
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Logo / Display H1</strong>
+        Barlow<br>Weight: 900<br>Size: 48–64px<br>Color: #662490<br>
+        <span style="color:#BF1E6E;">★ Also used in logo</span>
+      </div>
+      <p style="font-family:'Barlow',sans-serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:900;color:#662490;line-height:1.1;letter-spacing:-.01em;">PoleClass <em style="color:#FF559D;font-style:italic;">Pro</em></p>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>H2 Section Heading</strong>
+        Barlow<br>Weight: 900<br>Size: 26–36px<br>Color: #662490
+      </div>
+      <p style="font-family:'Barlow',sans-serif;font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;color:#662490;line-height:1.2;letter-spacing:-.01em;">Build Your Best Class Plan</p>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>H3 Subheading</strong>
+        Barlow<br>Weight: 700<br>Size: 16–18px<br>Color: #140B26
+      </div>
+      <p style="font-family:'Barlow',sans-serif;font-size:17px;font-weight:700;color:#140B26;">Warmup · Conditioning · Floor Work · Pole Skills</p>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Body Text</strong>
+        DM Sans<br>Weight: 400<br>Size: 14px<br>Color: #140B26<br>Line-height: 1.7
+      </div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#140B26;line-height:1.7;max-width:520px;">PoleClass Pro gives you 450+ moves, scaffolded level progressions, and an AI-powered class generator — so you spend your energy teaching, not planning. Built by pole instructors, for pole instructors.</p>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Link / Accent</strong>
+        DM Sans<br>Weight: 600<br>Color: #BF1E6E<br>Underline on focus
+      </div>
+      <a href="#" style="color:#BF1E6E;font-weight:600;text-decoration:underline;font-size:14px;font-family:'DM Sans',sans-serif;">View the full moves database →</a>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Label / Mono</strong>
+        DM Mono<br>Weight: 500<br>Size: 11px<br>Uppercase + tracking
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#BF1E6E;">Section 04 · Beginner Level · Invert Prep</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ 4. LOGO ═══════════ -->
+<section class="section" id="logo" aria-labelledby="h-logo" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 04</span>
+  <h2 id="h-logo">Logo Usage</h2>
+
+  <div class="logo-note">
+    <strong>Font note</strong>
+    The logo wordmark uses <strong>Barlow 900</strong> — the same font as all UI headings. This creates a unified brand voice across the mark and the product. The dancer silhouette (Jasmine pose) is the proprietary element — never crop, distort, recolor, or separate her from the wordmark. Minimum logo width: 120px.
+  </div>
+
+  <div class="logo-note" style="border-color:#662490; background:#F4EEF9; margin-bottom:24px;">
+    <strong style="color:#662490;">Dancer detail rule</strong>
+    The full multi-color dancer detail (purple body, hot pink hair, blush highlights) only reads correctly on <strong>dark backgrounds (#140B26)</strong>. On purple and white backgrounds, the dancer renders as a <strong>white silhouette + hot pink highlights</strong> to preserve legibility. This is intentional and systematic.
+  </div>
+
+  <div class="logo-grid">
+
+    <!-- ON WHITE — standard full-color logo -->
+    <div class="logo-cell" style="background:#FFFFFF; padding: 24px 20px;">
+      <div class="logo-cell-label">✓ On White — Standard</div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 77" width="200" role="img" aria-label="PoleClass Pro logo on white background" style="display:block;margin:0 auto;max-width:100%;">
+        <title>PoleClass Pro — On White</title>
+        <style>.cls-1w{fill:#FFFFFF}.cls-2w{fill:#712694}.cls-3w{fill:#FF69B4}.cls-4w{fill:#FFFFFF;stroke:#712694;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style>
+        <rect class="cls-1w" x=".8" y="-.1" width="173.9" height="77.3"/>
+        <path class="cls-2w" d="m31.7 36.5c-1.1-1.7-0.8-3.8-3.7-5.5-1.1-0.8-6.7-4.5-6.7-5.4 0-0.4 0.4-0.9 0.3-1.4-0.1-1.3 0-3.3-0.6-5.1-0.3-1.6-0.5-3.4-2.1-3.3h-1.3v-14.3h-1.4v14.4c-2.3 0.4-4.7 1.4-7.5 1.4-1.5-0.1-4.3-0.5-4.8-0.3-0.2 0.4-1.2 0.4-1.1 1 0.2 0.4 0.7 0.7 0.7 1 0.4 1.1 2.8 0.6 3.6 0.9 1.1 0.5 1.7-0.4 2.5-0.2 1.3 0.1 2.7 0.2 4 0.5 0.8 0.2 2.1 0.4 2.3 0.2l0.1-0.1h-0.1 0.1c0.1 0 0 0 0 0h0.2l-0.1-0.1h-0.1c0.3-0.1 0.1-0.1 0.1-0.1v1.6c-0.5 1-0.7 2.5-0.8 3.7-4.2-0.2-6.4 0.8-9.6 1.8-1.3 0.3-2 1.1-2 1.4-0.3 0.5 0 5.5-0.4 10.5-0.2 2.3-1.5 3.9-1.3 5.3 0.1 0.5-0.2 0.6-0.1 1.7l0.3 3c0.6 0.4 1.2-0.2 1.6-0.5l0.9-3.1c1.4-1.6 1.3-2.3 0.3-3.4 2.7-5.9 3-6.8 2-10.8 0.4-0.5 4.6 0.1 6.5-0.5 1.4-0.3 1.8 0.7 2.7 1.3v0.1l0.2 0.1-0.2 20.5c-0.5 0-0.5 0.7-0.4 1-0.4 0.3-0.3 0.7-0.1 1.1-0.3 0.7 0.3 1 0.4 1.3l-0.6 0.3 0.1 2 0.6 0.4v15.9h1.4v-15.5c1.2-0.4 2-1.4 4.7-4.3 0.7-0.8 4.4-1.3 5.1-5.3 0.3-2 1-3.7 0.6-5.5l1.9-2.9c1.6-1.6 3.1-2.3 1.8-4.8zm-11.4 16.5-1.3 1.4c-0.9 0-0.9-1.1-1.4-1.6v-9c0.8 0 0.7-1.4 2-1.2 1.1 1.3 1-0.6 1.8-0.6l1-0.1c-0.3-2.9 0.7-4.3 0.3-6 0-1.8-0.3-3.3-2.1-4l-1.7 0.9-1.3 0.3v10.2 0.4c0.1 0.1 0.2 0.2 0.3 0.4h0.5l0.2 0.7c-0.4 1.3 0.5 4.6 2.5 4.6 1.2 0.1 0.2 1.1-0.8 3.6z"/>
+        <path class="cls-2w" d="m170.2 38c-1.2-1.4-2.3-3.8-5.6-3.8-1.9 0-3.7 0.6-4.7 1.7-0.5-1.1-1.5-1.7-2.5-1.7-0.6 0-1.2 0.2-1.7 0.4-0.1-0.2-0.4-0.4-0.7-0.4h-3.3l-2.3-2.3c-1-1.4-2.5-2.4-5-2.4h-6.8c-0.4 0-0.9 0.3-0.9 0.9v18.5c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.4 0.4 0.7 0.4h3.8c0.5 0 0.8-0.3 0.8-0.7v-6.7h2c0.7 0 1.7-0.3 2.2-0.5v3.1c0 0.2 0.1 0.4 0.2 0.6l3.8 4c0.2 0.1 0.5 0.2 0.7 0.2h3.7c0.5 0 0.8-0.3 0.8-0.7v-8.3c0.2 1.8 0.9 3.1 2.1 4.2l2.2 2.4c1.3 1.5 2.6 2.4 5 2.4 4.5 0.1 5.5-3.8 5.5-5.8 0.1-4.8 0-6.6-3.2-9.9z"/>
+        <path class="cls-2w" d="m133.5 37.9c-1.4-1.6-2.7-3.7-7.6-3.7-2 0.3-4.2 1.2-5.3 3.3-0.9-1.8-2.7-3.3-6-3.3-1.9 0.1-4.6 0.8-5.9 3.5-1.1-1.6-2.7-3.5-6.3-3.5-0.9 0-1.9 0.2-3.2 0.6v-1.2l-3-3.6-0.7-0.5h-3.9c-0.5 0-0.9 0.4-0.9 0.9v2.9c-1.2-2-3.1-3.9-6.6-3.9-4.2 0-6.7 2.8-6.7 6.2v2.3c-1-1.8-2.8-3.8-6.2-3.8-0.7 0-2 0.1-3.2 0.5v-1l-3.1-3.7-0.5-0.4h-3.9c-0.5 0-1 0.4-1 0.9v7.5c-1.1-1.8-2.9-3.8-6.4-3.8-1.2 0-2.7 0.3-3.9 1l-3.1-3.4c-1-1.3-2.2-2.2-4.7-2.2h-7c-0.5 0-0.9 0.4-0.9 0.8v18.6c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.5 0.4 0.7 0.4h4c0.5 0 0.7-0.3 0.7-0.7v-6.8h2.3c0.6 0 1.7-0.2 2.2-0.5 0.6 2 3.9 5.2 4.8 6.1 1.2 1.2 2.6 2 4.8 2s4-0.7 5.2-2.2l1.5 1.7c0.2 0.3 0.5 0.4 0.7 0.4h3.8c0.5 0 0.7-0.3 0.7-0.7v-3.1l1.4 1.4c1.4 1.6 2.9 2.5 5.1 2.4 3.3 0.1 5-1.6 5.8-4l1.2 1.3c1.4 1.6 3.1 2.7 5.8 2.7 2.5 0 4.1-0.8 5.2-2.3l1.5 1.9c0.3 0.3 0.5 0.4 0.8 0.4h3.7c0.8 0 0.9-0.3 0.9-0.7v-1.7l1.1 1.1c1 0.9 2.5 1.3 3.8 1.3 0.6 0 1.3-0.2 2.2-0.5l0.4 0.3h4.1c0.5 0 0.9-0.2 0.9-0.7v-1.8c1.4 1.7 3.4 2.7 5.6 2.7 2.5 0.1 4.6-0.8 5.8-2.4h0.1c1.1 1.2 2.5 2.4 5.9 2.4 4.2 0.1 6.2-2.4 6.1-4.8 0-1.5-0.5-2.6-1.9-4.4l0.8-0.1h0.2c0.3-0.2 0.4-0.4 0.4-0.8 0.1-2.6-0.4-3.6-1.5-5.7z"/>
+        <path class="cls-3w" d="m39 42.2 2.9 3.3 2.5-0.1 2.2-0.5v-6c-0.7 1.6-2.6 3.3-5 3.3h-2.6z"/>
+        <path class="cls-3w" d="m50.1 49.4 1.9 1.9c2.6 2.6 7.4 2.4 8.9-0.3l-1-1.6v-4.4c-0.9 2.9-2.5 4.9-6.4 4.9-1.1 0-2.4-0.2-3.4-0.5z"/>
+        <path class="cls-3w" d="m68.5 49.4 1.5 1.6c3 2.9 8.5 3 9.6-1.6l-2.7-3.5c-0.8 2.5-2.5 4-5.5 4-0.9 0-2 0-2.9-0.5z"/>
+        <path class="cls-3w" d="m81.1 49.1 1.8 1.9c2.5 2.5 7.3 2.9 9.2-0.1l-1.2-1.5v-5.2c-0.5 2.7-2.7 5.2-6.5 5.2-1 0-2.3 0-3.3-0.3z"/>
+        <path class="cls-3w" d="m98.6 49.4 2 2.2c1.6 1.8 4.4 1.5 5.8 0.9l-2.8-3.6c-0.7 0.5-1.4 0.5-2.2 0.5h-2.8z"/>
+        <path class="cls-3w" d="m111.1 49.1 2 2.2c3 2.4 8.1 2.6 9.6-0.7l-3-4c-0.6 1.8-2.3 2.8-5.3 3.1-0.9 0-2.4-0.3-3.3-0.6z"/>
+        <path class="cls-3w" d="m122.1 48.9 2.5 2.5c2.4 2.5 9 3 10-2l-3.1-4c-0.1 2.3-2.4 4-5.1 4-1.4 0-2.9 0-4.3-0.5z"/>
+        <polygon class="cls-3w" points="35 49.7 37.4 52.7 41.1 52.8 38.4 49.4"/>
+        <polygon class="cls-3w" points="60.9 49.7 63.6 52.9 67.4 52.9 64.4 49.4"/>
+        <polygon class="cls-3w" points="92 49.4 94.6 52.8 98.4 52.8 95.4 49.4"/>
+        <polygon class="cls-3w" points="104.1 49.4 107.4 52.8 111 52.8 107.9 49.4"/>
+        <path class="cls-3w" d="m82.1 35.5 2.6 3.4c0.4-0.5 0.7-0.8 1.2-1l-0.8-2c-0.1-1.8-2.6-1.8-3-0.4z"/>
+        <path class="cls-3w" d="m86.9 36.9 2.5 3.5h1.3v-2.9l-0.6-0.9-3.2 0.3z"/>
+        <path class="cls-3w" d="m141.9 42.2 3.1 3.3 2.9-0.1 2.2-0.7v-6.8c-1 2.5-2.7 4.3-5.5 4.3h-2.7z"/>
+        <path class="cls-3w" d="m161.1 49.1c0.8 0.9 2.4 2.8 4 3.4 3.6 1.4 7.1 0 7.6-4.1l-2.8-3.3c-0.3 2.3-2.3 4.3-5.5 4.3-1.3 0-2.4 0-3.3-0.3z"/>
+        <polygon class="cls-3w" points="137.9 49.4 140.5 52.8 144.1 52.8 141.4 49.4"/>
+        <path class="cls-3w" d="m128.5 40.4h3.4l2.1 3-1.4 0.2c-0.7-1.2-1.7-2.3-4.1-3.2z"/>
+        <polygon class="cls-3w" points="151.1 49.4 154.4 52.9 157.6 52.9 154.7 49.4"/>
+        <path class="cls-4w" d="m46.6 35.9c0 3-1.9 5.7-5.2 5.7h-3.3v6.9c0 0.4-0.1 0.6-0.5 0.6h-3c-0.2 0-0.6-0.2-0.6-0.6v-17.9c0-0.2 0.4-0.6 0.6-0.6h6.8c3.3 0 5.2 2.9 5.2 5.9zm-3.5 0.1c0-1.4-0.9-2.9-2.4-2.9h-2.8v5.5h2.8c1.5 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4w" d="m46.9 43.4v-2.4c0-3.9 2.1-6.5 6.2-6.4 3.8 0 5.8 2.5 5.8 6.4v2.4c0 3.7-2.3 6-5.8 6-4 0-6.2-2-6.2-6zm8.1 0v-2.5c0-1.5-0.6-2.8-2-2.8-1.1 0-1.9 1.3-1.9 2.8v2.5c0 1.5 0.8 2.5 1.9 2.5 1.4 0 2-1 2-2.5z"/>
+        <path class="cls-4w" d="m64.4 30.4v18.1c0 0.4-0.3 0.6-0.5 0.6h-3.2c-0.2 0-0.7-0.2-0.7-0.6v-18.1c0-0.3 0.5-0.4 0.7-0.4h3.2c0.2 0 0.5 0.1 0.5 0.4z"/>
+        <path class="cls-4w" d="m76.9 41.3v1.6c0 0.2-0.3 0.6-0.5 0.6h-6.9c0 1.4 0.5 2.4 1.9 2.4 1 0 1.6-0.5 1.7-1.3 0-0.2 0.4-0.5 0.8-0.4l2.5 0.8c0.2 0 0.2 0.4 0.2 0.6-0.6 2.1-2.5 3.8-5.2 3.8-3.5 0-5.8-2.3-5.8-5.8v-3c0-3.7 2.3-6.1 5.5-6.1 3.6 0 5.8 2.4 5.8 6.8zm-7.5-0.3h3.6c0-1.6-0.6-2.6-1.9-2.6-1.1 0-1.7 1-1.7 2.6z"/>
+        <path class="cls-4w" d="m89.9 36.6-3 0.3c-0.4 0-0.8-0.3-0.8-0.5 0-1.3-0.6-2.8-2-2.8-1.5 0-2.2 1-2.2 2.4v7.4c0 1.2 0.7 2.2 2.2 2.2 1.6 0 2.3-1 2-2.5 0-0.2 0.4-0.5 0.8-0.5h3c0.5 0 0.5 0.3 0.5 0.5 0 3.3-2.3 6.3-6.3 6.3-3.5 0-6.2-2.3-6.2-5.8v-8c0-3.2 2.2-5.6 6-5.6 4 0 6.2 2.5 6.2 5.9 0 0.5 0 0.7-0.2 0.7z"/>
+        <path class="cls-4w" d="m95.4 30.4v18.1c0 0.4-0.3 0.6-0.4 0.6h-3c-0.4 0-0.9-0.2-0.9-0.6v-17.9c0-0.5 0.5-0.6 0.9-0.6h3c0.1 0 0.4 0.1 0.4 0.4z"/>
+        <path class="cls-4w" d="m108 39.7v8.8c0 0.4-0.1 0.6-0.4 0.6h-3c-0.5 0-0.6-0.2-0.6-0.6v-0.4c-0.9 0.8-1.9 1.3-3.1 1.3-2.5 0-4.3-1.4-4.3-4 0-3 1.8-4.5 5-4.5h2.4v-0.9c0-1-0.6-1.6-1.6-1.6-0.9 0-1.4 0.5-1.5 1 0 0.3-0.3 0.3-0.5 0.3l-2.8-0.1c-0.5 0-0.7-0.2-0.7-0.5 0.2-2.5 2.5-4.5 5.5-4.5 3.3-0.1 5.6 1.8 5.6 5.1zm-4 4.9v-1.2h-1.6c-1 0-1.7 0.5-1.7 1.2 0 0.9 0.8 1.3 1.4 1.3 1 0 1.9-0.8 1.9-1.3z"/>
+        <path class="cls-4w" d="m109.1 44.4h3c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.7 1 1.5 1 1.2 0 1.7-0.5 1.6-1 0-1.6-6.9-0.9-6.9-5.6 0-3 2.3-4.8 5.3-4.8 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.2 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.7-1.3-1.7-1.3s-1.5 0.5-1.5 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-1.8 4.2-5.3 4.2s-5.4-1.4-5.5-4.1c0-0.4 0-0.6 0.2-0.6z"/>
+        <path class="cls-4w" d="m120.9 44.4h2.7c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.6 1.4 1.6 1.4 1.1 0 1.6-0.5 1.6-1 0-1.8-6.9-1-6.9-5.8 0-3 2.2-5 5.2-5 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.3 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.6-1.3-1.6-1.3s-1.4 0.5-1.4 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-2 4-5.5 4-3.4 0-5.4-1.2-5.4-3.9 0-0.4 0.1-0.6 0.4-0.6z"/>
+        <path class="cls-4w" d="m150 35.9c0 3-2.1 5.7-5.4 5.7h-3.2v6.9c0 0.4-0.3 0.6-0.8 0.6h-3c-0.2 0-0.5-0.2-0.5-0.6v-17.9c0-0.2 0.3-0.6 0.5-0.6h6.8c3.5 0 5.6 2.9 5.6 5.9zm-4 0.1c0-1.4-1-2.9-2.4-2.9h-2.5v5.5h2.5c1.4 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4w" d="m158.6 35.9-0.5 3c0 0.5-0.5 0.5-0.7 0.5-0.3-0.3-0.8-0.3-1-0.3-1 0-1.8 0.9-1.8 2.3v7.1c0 0.4-0.2 0.6-0.5 0.6h-3c-0.1 0-0.5-0.2-0.5-0.6v-13.1c0-0.3 0.4-0.4 0.5-0.4h3c0.3 0 0.5 0.1 0.5 0.4v0.6c0.5-0.6 1.4-1 2.3-1 0.7 0 1.1 0.1 1.7 0.4v0.5z"/>
+        <path class="cls-4w" d="m158.9 43.4v-2.4c0-3.9 1.8-6.4 5.7-6.4 3.8 0 5.4 2.5 5.4 6.4v2.4c0 3.7-2.1 6-5.4 6-4 0-5.7-2-5.7-6zm7.5 0v-2.5c0-1.5-0.5-2.8-1.8-2.8-1.2 0-1.7 1.3-1.7 2.8v2.5c0 1.5 0.5 2.5 1.7 2.5 1.3 0 1.8-1 1.8-2.5z"/>
+      </svg>
+    </div>
+
+    <!-- ON DARK — inverted (white wordmark + pink accents) -->
+    <div class="logo-cell" style="background:#140B26; padding: 24px 20px;">
+      <div class="logo-cell-label" style="background:#2A1A3E;color:#E0C8FF;">✓ On Dark ★ Reference</div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 77" width="200" role="img" aria-label="PoleClass Pro logo on dark background" style="display:block;margin:0 auto;max-width:100%;">
+        <title>PoleClass Pro — On Dark</title>
+        <style>.cls-2d{fill:#FFFFFF}.cls-3d{fill:#FF69B4}.cls-4d{fill:#FFFFFF;stroke:#FF8CC2;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style>
+        <path class="cls-2d" d="m31.7 36.5c-1.1-1.7-0.8-3.8-3.7-5.5-1.1-0.8-6.7-4.5-6.7-5.4 0-0.4 0.4-0.9 0.3-1.4-0.1-1.3 0-3.3-0.6-5.1-0.3-1.6-0.5-3.4-2.1-3.3h-1.3v-14.3h-1.4v14.4c-2.3 0.4-4.7 1.4-7.5 1.4-1.5-0.1-4.3-0.5-4.8-0.3-0.2 0.4-1.2 0.4-1.1 1 0.2 0.4 0.7 0.7 0.7 1 0.4 1.1 2.8 0.6 3.6 0.9 1.1 0.5 1.7-0.4 2.5-0.2 1.3 0.1 2.7 0.2 4 0.5 0.8 0.2 2.1 0.4 2.3 0.2l0.1-0.1h-0.1 0.1c0.1 0 0 0 0 0h0.2l-0.1-0.1h-0.1c0.3-0.1 0.1-0.1 0.1-0.1v1.6c-0.5 1-0.7 2.5-0.8 3.7-4.2-0.2-6.4 0.8-9.6 1.8-1.3 0.3-2 1.1-2 1.4-0.3 0.5 0 5.5-0.4 10.5-0.2 2.3-1.5 3.9-1.3 5.3 0.1 0.5-0.2 0.6-0.1 1.7l0.3 3c0.6 0.4 1.2-0.2 1.6-0.5l0.9-3.1c1.4-1.6 1.3-2.3 0.3-3.4 2.7-5.9 3-6.8 2-10.8 0.4-0.5 4.6 0.1 6.5-0.5 1.4-0.3 1.8 0.7 2.7 1.3v0.1l0.2 0.1-0.2 20.5c-0.5 0-0.5 0.7-0.4 1-0.4 0.3-0.3 0.7-0.1 1.1-0.3 0.7 0.3 1 0.4 1.3l-0.6 0.3 0.1 2 0.6 0.4v15.9h1.4v-15.5c1.2-0.4 2-1.4 4.7-4.3 0.7-0.8 4.4-1.3 5.1-5.3 0.3-2 1-3.7 0.6-5.5l1.9-2.9c1.6-1.6 3.1-2.3 1.8-4.8zm-11.4 16.5-1.3 1.4c-0.9 0-0.9-1.1-1.4-1.6v-9c0.8 0 0.7-1.4 2-1.2 1.1 1.3 1-0.6 1.8-0.6l1-0.1c-0.3-2.9 0.7-4.3 0.3-6 0-1.8-0.3-3.3-2.1-4l-1.7 0.9-1.3 0.3v10.2 0.4c0.1 0.1 0.2 0.2 0.3 0.4h0.5l0.2 0.7c-0.4 1.3 0.5 4.6 2.5 4.6 1.2 0.1 0.2 1.1-0.8 3.6z"/>
+        <path class="cls-2d" d="m170.2 38c-1.2-1.4-2.3-3.8-5.6-3.8-1.9 0-3.7 0.6-4.7 1.7-0.5-1.1-1.5-1.7-2.5-1.7-0.6 0-1.2 0.2-1.7 0.4-0.1-0.2-0.4-0.4-0.7-0.4h-3.3l-2.3-2.3c-1-1.4-2.5-2.4-5-2.4h-6.8c-0.4 0-0.9 0.3-0.9 0.9v18.5c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.4 0.4 0.7 0.4h3.8c0.5 0 0.8-0.3 0.8-0.7v-6.7h2c0.7 0 1.7-0.3 2.2-0.5v3.1c0 0.2 0.1 0.4 0.2 0.6l3.8 4c0.2 0.1 0.5 0.2 0.7 0.2h3.7c0.5 0 0.8-0.3 0.8-0.7v-8.3c0.2 1.8 0.9 3.1 2.1 4.2l2.2 2.4c1.3 1.5 2.6 2.4 5 2.4 4.5 0.1 5.5-3.8 5.5-5.8 0.1-4.8 0-6.6-3.2-9.9z"/>
+        <path class="cls-2d" d="m133.5 37.9c-1.4-1.6-2.7-3.7-7.6-3.7-2 0.3-4.2 1.2-5.3 3.3-0.9-1.8-2.7-3.3-6-3.3-1.9 0.1-4.6 0.8-5.9 3.5-1.1-1.6-2.7-3.5-6.3-3.5-0.9 0-1.9 0.2-3.2 0.6v-1.2l-3-3.6-0.7-0.5h-3.9c-0.5 0-0.9 0.4-0.9 0.9v2.9c-1.2-2-3.1-3.9-6.6-3.9-4.2 0-6.7 2.8-6.7 6.2v2.3c-1-1.8-2.8-3.8-6.2-3.8-0.7 0-2 0.1-3.2 0.5v-1l-3.1-3.7-0.5-0.4h-3.9c-0.5 0-1 0.4-1 0.9v7.5c-1.1-1.8-2.9-3.8-6.4-3.8-1.2 0-2.7 0.3-3.9 1l-3.1-3.4c-1-1.3-2.2-2.2-4.7-2.2h-7c-0.5 0-0.9 0.4-0.9 0.8v18.6c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.5 0.4 0.7 0.4h4c0.5 0 0.7-0.3 0.7-0.7v-6.8h2.3c0.6 0 1.7-0.2 2.2-0.5 0.6 2 3.9 5.2 4.8 6.1 1.2 1.2 2.6 2 4.8 2s4-0.7 5.2-2.2l1.5 1.7c0.2 0.3 0.5 0.4 0.7 0.4h3.8c0.5 0 0.7-0.3 0.7-0.7v-3.1l1.4 1.4c1.4 1.6 2.9 2.5 5.1 2.4 3.3 0.1 5-1.6 5.8-4l1.2 1.3c1.4 1.6 3.1 2.7 5.8 2.7 2.5 0 4.1-0.8 5.2-2.3l1.5 1.9c0.3 0.3 0.5 0.4 0.8 0.4h3.7c0.8 0 0.9-0.3 0.9-0.7v-1.7l1.1 1.1c1 0.9 2.5 1.3 3.8 1.3 0.6 0 1.3-0.2 2.2-0.5l0.4 0.3h4.1c0.5 0 0.9-0.2 0.9-0.7v-1.8c1.4 1.7 3.4 2.7 5.6 2.7 2.5 0.1 4.6-0.8 5.8-2.4h0.1c1.1 1.2 2.5 2.4 5.9 2.4 4.2 0.1 6.2-2.4 6.1-4.8 0-1.5-0.5-2.6-1.9-4.4l0.8-0.1h0.2c0.3-0.2 0.4-0.4 0.4-0.8 0.1-2.6-0.4-3.6-1.5-5.7z"/>
+        <path class="cls-3d" d="m39 42.2 2.9 3.3 2.5-0.1 2.2-0.5v-6c-0.7 1.6-2.6 3.3-5 3.3h-2.6z"/>
+        <path class="cls-3d" d="m50.1 49.4 1.9 1.9c2.6 2.6 7.4 2.4 8.9-0.3l-1-1.6v-4.4c-0.9 2.9-2.5 4.9-6.4 4.9-1.1 0-2.4-0.2-3.4-0.5z"/>
+        <path class="cls-3d" d="m68.5 49.4 1.5 1.6c3 2.9 8.5 3 9.6-1.6l-2.7-3.5c-0.8 2.5-2.5 4-5.5 4-0.9 0-2 0-2.9-0.5z"/>
+        <path class="cls-3d" d="m81.1 49.1 1.8 1.9c2.5 2.5 7.3 2.9 9.2-0.1l-1.2-1.5v-5.2c-0.5 2.7-2.7 5.2-6.5 5.2-1 0-2.3 0-3.3-0.3z"/>
+        <path class="cls-3d" d="m98.6 49.4 2 2.2c1.6 1.8 4.4 1.5 5.8 0.9l-2.8-3.6c-0.7 0.5-1.4 0.5-2.2 0.5h-2.8z"/>
+        <path class="cls-3d" d="m111.1 49.1 2 2.2c3 2.4 8.1 2.6 9.6-0.7l-3-4c-0.6 1.8-2.3 2.8-5.3 3.1-0.9 0-2.4-0.3-3.3-0.6z"/>
+        <path class="cls-3d" d="m122.1 48.9 2.5 2.5c2.4 2.5 9 3 10-2l-3.1-4c-0.1 2.3-2.4 4-5.1 4-1.4 0-2.9 0-4.3-0.5z"/>
+        <polygon class="cls-3d" points="35 49.7 37.4 52.7 41.1 52.8 38.4 49.4"/>
+        <polygon class="cls-3d" points="60.9 49.7 63.6 52.9 67.4 52.9 64.4 49.4"/>
+        <polygon class="cls-3d" points="92 49.4 94.6 52.8 98.4 52.8 95.4 49.4"/>
+        <polygon class="cls-3d" points="104.1 49.4 107.4 52.8 111 52.8 107.9 49.4"/>
+        <path class="cls-3d" d="m82.1 35.5 2.6 3.4c0.4-0.5 0.7-0.8 1.2-1l-0.8-2c-0.1-1.8-2.6-1.8-3-0.4z"/>
+        <path class="cls-3d" d="m86.9 36.9 2.5 3.5h1.3v-2.9l-0.6-0.9-3.2 0.3z"/>
+        <path class="cls-3d" d="m141.9 42.2 3.1 3.3 2.9-0.1 2.2-0.7v-6.8c-1 2.5-2.7 4.3-5.5 4.3h-2.7z"/>
+        <path class="cls-3d" d="m161.1 49.1c0.8 0.9 2.4 2.8 4 3.4 3.6 1.4 7.1 0 7.6-4.1l-2.8-3.3c-0.3 2.3-2.3 4.3-5.5 4.3-1.3 0-2.4 0-3.3-0.3z"/>
+        <polygon class="cls-3d" points="137.9 49.4 140.5 52.8 144.1 52.8 141.4 49.4"/>
+        <path class="cls-3d" d="m128.5 40.4h3.4l2.1 3-1.4 0.2c-0.7-1.2-1.7-2.3-4.1-3.2z"/>
+        <polygon class="cls-3d" points="151.1 49.4 154.4 52.9 157.6 52.9 154.7 49.4"/>
+        <path class="cls-4d" d="m46.6 35.9c0 3-1.9 5.7-5.2 5.7h-3.3v6.9c0 0.4-0.1 0.6-0.5 0.6h-3c-0.2 0-0.6-0.2-0.6-0.6v-17.9c0-0.2 0.4-0.6 0.6-0.6h6.8c3.3 0 5.2 2.9 5.2 5.9zm-3.5 0.1c0-1.4-0.9-2.9-2.4-2.9h-2.8v5.5h2.8c1.5 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4d" d="m46.9 43.4v-2.4c0-3.9 2.1-6.5 6.2-6.4 3.8 0 5.8 2.5 5.8 6.4v2.4c0 3.7-2.3 6-5.8 6-4 0-6.2-2-6.2-6zm8.1 0v-2.5c0-1.5-0.6-2.8-2-2.8-1.1 0-1.9 1.3-1.9 2.8v2.5c0 1.5 0.8 2.5 1.9 2.5 1.4 0 2-1 2-2.5z"/>
+        <path class="cls-4d" d="m64.4 30.4v18.1c0 0.4-0.3 0.6-0.5 0.6h-3.2c-0.2 0-0.7-0.2-0.7-0.6v-18.1c0-0.3 0.5-0.4 0.7-0.4h3.2c0.2 0 0.5 0.1 0.5 0.4z"/>
+        <path class="cls-4d" d="m76.9 41.3v1.6c0 0.2-0.3 0.6-0.5 0.6h-6.9c0 1.4 0.5 2.4 1.9 2.4 1 0 1.6-0.5 1.7-1.3 0-0.2 0.4-0.5 0.8-0.4l2.5 0.8c0.2 0 0.2 0.4 0.2 0.6-0.6 2.1-2.5 3.8-5.2 3.8-3.5 0-5.8-2.3-5.8-5.8v-3c0-3.7 2.3-6.1 5.5-6.1 3.6 0 5.8 2.4 5.8 6.8zm-7.5-0.3h3.6c0-1.6-0.6-2.6-1.9-2.6-1.1 0-1.7 1-1.7 2.6z"/>
+        <path class="cls-4d" d="m89.9 36.6-3 0.3c-0.4 0-0.8-0.3-0.8-0.5 0-1.3-0.6-2.8-2-2.8-1.5 0-2.2 1-2.2 2.4v7.4c0 1.2 0.7 2.2 2.2 2.2 1.6 0 2.3-1 2-2.5 0-0.2 0.4-0.5 0.8-0.5h3c0.5 0 0.5 0.3 0.5 0.5 0 3.3-2.3 6.3-6.3 6.3-3.5 0-6.2-2.3-6.2-5.8v-8c0-3.2 2.2-5.6 6-5.6 4 0 6.2 2.5 6.2 5.9 0 0.5 0 0.7-0.2 0.7z"/>
+        <path class="cls-4d" d="m95.4 30.4v18.1c0 0.4-0.3 0.6-0.4 0.6h-3c-0.4 0-0.9-0.2-0.9-0.6v-17.9c0-0.5 0.5-0.6 0.9-0.6h3c0.1 0 0.4 0.1 0.4 0.4z"/>
+        <path class="cls-4d" d="m108 39.7v8.8c0 0.4-0.1 0.6-0.4 0.6h-3c-0.5 0-0.6-0.2-0.6-0.6v-0.4c-0.9 0.8-1.9 1.3-3.1 1.3-2.5 0-4.3-1.4-4.3-4 0-3 1.8-4.5 5-4.5h2.4v-0.9c0-1-0.6-1.6-1.6-1.6-0.9 0-1.4 0.5-1.5 1 0 0.3-0.3 0.3-0.5 0.3l-2.8-0.1c-0.5 0-0.7-0.2-0.7-0.5 0.2-2.5 2.5-4.5 5.5-4.5 3.3-0.1 5.6 1.8 5.6 5.1zm-4 4.9v-1.2h-1.6c-1 0-1.7 0.5-1.7 1.2 0 0.9 0.8 1.3 1.4 1.3 1 0 1.9-0.8 1.9-1.3z"/>
+        <path class="cls-4d" d="m109.1 44.4h3c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.7 1 1.5 1 1.2 0 1.7-0.5 1.6-1 0-1.6-6.9-0.9-6.9-5.6 0-3 2.3-4.8 5.3-4.8 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.2 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.7-1.3-1.7-1.3s-1.5 0.5-1.5 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-1.8 4.2-5.3 4.2s-5.4-1.4-5.5-4.1c0-0.4 0-0.6 0.2-0.6z"/>
+        <path class="cls-4d" d="m120.9 44.4h2.7c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.6 1.4 1.6 1.4 1.1 0 1.6-0.5 1.6-1 0-1.8-6.9-1-6.9-5.8 0-3 2.2-5 5.2-5 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.3 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.6-1.3-1.6-1.3s-1.4 0.5-1.4 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-2 4-5.5 4-3.4 0-5.4-1.2-5.4-3.9 0-0.4 0.1-0.6 0.4-0.6z"/>
+        <path class="cls-4d" d="m150 35.9c0 3-2.1 5.7-5.4 5.7h-3.2v6.9c0 0.4-0.3 0.6-0.8 0.6h-3c-0.2 0-0.5-0.2-0.5-0.6v-17.9c0-0.2 0.3-0.6 0.5-0.6h6.8c3.5 0 5.6 2.9 5.6 5.9zm-4 0.1c0-1.4-1-2.9-2.4-2.9h-2.5v5.5h2.5c1.4 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4d" d="m158.6 35.9-0.5 3c0 0.5-0.5 0.5-0.7 0.5-0.3-0.3-0.8-0.3-1-0.3-1 0-1.8 0.9-1.8 2.3v7.1c0 0.4-0.2 0.6-0.5 0.6h-3c-0.1 0-0.5-0.2-0.5-0.6v-13.1c0-0.3 0.4-0.4 0.5-0.4h3c0.3 0 0.5 0.1 0.5 0.4v0.6c0.5-0.6 1.4-1 2.3-1 0.7 0 1.1 0.1 1.7 0.4v0.5z"/>
+        <path class="cls-4d" d="m158.9 43.4v-2.4c0-3.9 1.8-6.4 5.7-6.4 3.8 0 5.4 2.5 5.4 6.4v2.4c0 3.7-2.1 6-5.4 6-4 0-5.7-2-5.7-6zm7.5 0v-2.5c0-1.5-0.5-2.8-1.8-2.8-1.2 0-1.7 1.3-1.7 2.8v2.5c0 1.5 0.5 2.5 1.7 2.5 1.3 0 1.8-1 1.8-2.5z"/>
+      </svg>
+    </div>
+
+    <!-- ON PURPLE — white silhouette + pink accents -->
+    <div class="logo-cell" style="background:#662490; padding: 24px 20px;">
+      <div class="logo-cell-label" style="background:#551f7a;color:#FFFFFF;">✓ On Purple</div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 77" width="200" role="img" aria-label="PoleClass Pro logo on purple background" style="display:block;margin:0 auto;max-width:100%;">
+        <title>PoleClass Pro — On Purple</title>
+        <style>.cls-2p{fill:#FFFFFF}.cls-3p{fill:#FF8CC2}.cls-4p{fill:#FFFFFF;stroke:#FF8CC2;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style>
+        <path class="cls-2p" d="m31.7 36.5c-1.1-1.7-0.8-3.8-3.7-5.5-1.1-0.8-6.7-4.5-6.7-5.4 0-0.4 0.4-0.9 0.3-1.4-0.1-1.3 0-3.3-0.6-5.1-0.3-1.6-0.5-3.4-2.1-3.3h-1.3v-14.3h-1.4v14.4c-2.3 0.4-4.7 1.4-7.5 1.4-1.5-0.1-4.3-0.5-4.8-0.3-0.2 0.4-1.2 0.4-1.1 1 0.2 0.4 0.7 0.7 0.7 1 0.4 1.1 2.8 0.6 3.6 0.9 1.1 0.5 1.7-0.4 2.5-0.2 1.3 0.1 2.7 0.2 4 0.5 0.8 0.2 2.1 0.4 2.3 0.2l0.1-0.1h-0.1 0.1c0.1 0 0 0 0 0h0.2l-0.1-0.1h-0.1c0.3-0.1 0.1-0.1 0.1-0.1v1.6c-0.5 1-0.7 2.5-0.8 3.7-4.2-0.2-6.4 0.8-9.6 1.8-1.3 0.3-2 1.1-2 1.4-0.3 0.5 0 5.5-0.4 10.5-0.2 2.3-1.5 3.9-1.3 5.3 0.1 0.5-0.2 0.6-0.1 1.7l0.3 3c0.6 0.4 1.2-0.2 1.6-0.5l0.9-3.1c1.4-1.6 1.3-2.3 0.3-3.4 2.7-5.9 3-6.8 2-10.8 0.4-0.5 4.6 0.1 6.5-0.5 1.4-0.3 1.8 0.7 2.7 1.3v0.1l0.2 0.1-0.2 20.5c-0.5 0-0.5 0.7-0.4 1-0.4 0.3-0.3 0.7-0.1 1.1-0.3 0.7 0.3 1 0.4 1.3l-0.6 0.3 0.1 2 0.6 0.4v15.9h1.4v-15.5c1.2-0.4 2-1.4 4.7-4.3 0.7-0.8 4.4-1.3 5.1-5.3 0.3-2 1-3.7 0.6-5.5l1.9-2.9c1.6-1.6 3.1-2.3 1.8-4.8zm-11.4 16.5-1.3 1.4c-0.9 0-0.9-1.1-1.4-1.6v-9c0.8 0 0.7-1.4 2-1.2 1.1 1.3 1-0.6 1.8-0.6l1-0.1c-0.3-2.9 0.7-4.3 0.3-6 0-1.8-0.3-3.3-2.1-4l-1.7 0.9-1.3 0.3v10.2 0.4c0.1 0.1 0.2 0.2 0.3 0.4h0.5l0.2 0.7c-0.4 1.3 0.5 4.6 2.5 4.6 1.2 0.1 0.2 1.1-0.8 3.6z"/>
+        <path class="cls-2p" d="m170.2 38c-1.2-1.4-2.3-3.8-5.6-3.8-1.9 0-3.7 0.6-4.7 1.7-0.5-1.1-1.5-1.7-2.5-1.7-0.6 0-1.2 0.2-1.7 0.4-0.1-0.2-0.4-0.4-0.7-0.4h-3.3l-2.3-2.3c-1-1.4-2.5-2.4-5-2.4h-6.8c-0.4 0-0.9 0.3-0.9 0.9v18.5c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.4 0.4 0.7 0.4h3.8c0.5 0 0.8-0.3 0.8-0.7v-6.7h2c0.7 0 1.7-0.3 2.2-0.5v3.1c0 0.2 0.1 0.4 0.2 0.6l3.8 4c0.2 0.1 0.5 0.2 0.7 0.2h3.7c0.5 0 0.8-0.3 0.8-0.7v-8.3c0.2 1.8 0.9 3.1 2.1 4.2l2.2 2.4c1.3 1.5 2.6 2.4 5 2.4 4.5 0.1 5.5-3.8 5.5-5.8 0.1-4.8 0-6.6-3.2-9.9z"/>
+        <path class="cls-2p" d="m133.5 37.9c-1.4-1.6-2.7-3.7-7.6-3.7-2 0.3-4.2 1.2-5.3 3.3-0.9-1.8-2.7-3.3-6-3.3-1.9 0.1-4.6 0.8-5.9 3.5-1.1-1.6-2.7-3.5-6.3-3.5-0.9 0-1.9 0.2-3.2 0.6v-1.2l-3-3.6-0.7-0.5h-3.9c-0.5 0-0.9 0.4-0.9 0.9v2.9c-1.2-2-3.1-3.9-6.6-3.9-4.2 0-6.7 2.8-6.7 6.2v2.3c-1-1.8-2.8-3.8-6.2-3.8-0.7 0-2 0.1-3.2 0.5v-1l-3.1-3.7-0.5-0.4h-3.9c-0.5 0-1 0.4-1 0.9v7.5c-1.1-1.8-2.9-3.8-6.4-3.8-1.2 0-2.7 0.3-3.9 1l-3.1-3.4c-1-1.3-2.2-2.2-4.7-2.2h-7c-0.5 0-0.9 0.4-0.9 0.8v18.6c0 0.2 0.1 0.4 0.2 0.6l3 3.8c0.2 0.3 0.5 0.4 0.7 0.4h4c0.5 0 0.7-0.3 0.7-0.7v-6.8h2.3c0.6 0 1.7-0.2 2.2-0.5 0.6 2 3.9 5.2 4.8 6.1 1.2 1.2 2.6 2 4.8 2s4-0.7 5.2-2.2l1.5 1.7c0.2 0.3 0.5 0.4 0.7 0.4h3.8c0.5 0 0.7-0.3 0.7-0.7v-3.1l1.4 1.4c1.4 1.6 2.9 2.5 5.1 2.4 3.3 0.1 5-1.6 5.8-4l1.2 1.3c1.4 1.6 3.1 2.7 5.8 2.7 2.5 0 4.1-0.8 5.2-2.3l1.5 1.9c0.3 0.3 0.5 0.4 0.8 0.4h3.7c0.8 0 0.9-0.3 0.9-0.7v-1.7l1.1 1.1c1 0.9 2.5 1.3 3.8 1.3 0.6 0 1.3-0.2 2.2-0.5l0.4 0.3h4.1c0.5 0 0.9-0.2 0.9-0.7v-1.8c1.4 1.7 3.4 2.7 5.6 2.7 2.5 0.1 4.6-0.8 5.8-2.4h0.1c1.1 1.2 2.5 2.4 5.9 2.4 4.2 0.1 6.2-2.4 6.1-4.8 0-1.5-0.5-2.6-1.9-4.4l0.8-0.1h0.2c0.3-0.2 0.4-0.4 0.4-0.8 0.1-2.6-0.4-3.6-1.5-5.7z"/>
+        <path class="cls-3p" d="m39 42.2 2.9 3.3 2.5-0.1 2.2-0.5v-6c-0.7 1.6-2.6 3.3-5 3.3h-2.6z"/>
+        <path class="cls-3p" d="m50.1 49.4 1.9 1.9c2.6 2.6 7.4 2.4 8.9-0.3l-1-1.6v-4.4c-0.9 2.9-2.5 4.9-6.4 4.9-1.1 0-2.4-0.2-3.4-0.5z"/>
+        <path class="cls-3p" d="m68.5 49.4 1.5 1.6c3 2.9 8.5 3 9.6-1.6l-2.7-3.5c-0.8 2.5-2.5 4-5.5 4-0.9 0-2 0-2.9-0.5z"/>
+        <path class="cls-3p" d="m81.1 49.1 1.8 1.9c2.5 2.5 7.3 2.9 9.2-0.1l-1.2-1.5v-5.2c-0.5 2.7-2.7 5.2-6.5 5.2-1 0-2.3 0-3.3-0.3z"/>
+        <path class="cls-3p" d="m98.6 49.4 2 2.2c1.6 1.8 4.4 1.5 5.8 0.9l-2.8-3.6c-0.7 0.5-1.4 0.5-2.2 0.5h-2.8z"/>
+        <path class="cls-3p" d="m111.1 49.1 2 2.2c3 2.4 8.1 2.6 9.6-0.7l-3-4c-0.6 1.8-2.3 2.8-5.3 3.1-0.9 0-2.4-0.3-3.3-0.6z"/>
+        <path class="cls-3p" d="m122.1 48.9 2.5 2.5c2.4 2.5 9 3 10-2l-3.1-4c-0.1 2.3-2.4 4-5.1 4-1.4 0-2.9 0-4.3-0.5z"/>
+        <polygon class="cls-3p" points="35 49.7 37.4 52.7 41.1 52.8 38.4 49.4"/>
+        <polygon class="cls-3p" points="60.9 49.7 63.6 52.9 67.4 52.9 64.4 49.4"/>
+        <polygon class="cls-3p" points="92 49.4 94.6 52.8 98.4 52.8 95.4 49.4"/>
+        <polygon class="cls-3p" points="104.1 49.4 107.4 52.8 111 52.8 107.9 49.4"/>
+        <path class="cls-3p" d="m82.1 35.5 2.6 3.4c0.4-0.5 0.7-0.8 1.2-1l-0.8-2c-0.1-1.8-2.6-1.8-3-0.4z"/>
+        <path class="cls-3p" d="m86.9 36.9 2.5 3.5h1.3v-2.9l-0.6-0.9-3.2 0.3z"/>
+        <path class="cls-3p" d="m141.9 42.2 3.1 3.3 2.9-0.1 2.2-0.7v-6.8c-1 2.5-2.7 4.3-5.5 4.3h-2.7z"/>
+        <path class="cls-3p" d="m161.1 49.1c0.8 0.9 2.4 2.8 4 3.4 3.6 1.4 7.1 0 7.6-4.1l-2.8-3.3c-0.3 2.3-2.3 4.3-5.5 4.3-1.3 0-2.4 0-3.3-0.3z"/>
+        <polygon class="cls-3p" points="137.9 49.4 140.5 52.8 144.1 52.8 141.4 49.4"/>
+        <path class="cls-3p" d="m128.5 40.4h3.4l2.1 3-1.4 0.2c-0.7-1.2-1.7-2.3-4.1-3.2z"/>
+        <polygon class="cls-3p" points="151.1 49.4 154.4 52.9 157.6 52.9 154.7 49.4"/>
+        <path class="cls-4p" d="m46.6 35.9c0 3-1.9 5.7-5.2 5.7h-3.3v6.9c0 0.4-0.1 0.6-0.5 0.6h-3c-0.2 0-0.6-0.2-0.6-0.6v-17.9c0-0.2 0.4-0.6 0.6-0.6h6.8c3.3 0 5.2 2.9 5.2 5.9zm-3.5 0.1c0-1.4-0.9-2.9-2.4-2.9h-2.8v5.5h2.8c1.5 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4p" d="m46.9 43.4v-2.4c0-3.9 2.1-6.5 6.2-6.4 3.8 0 5.8 2.5 5.8 6.4v2.4c0 3.7-2.3 6-5.8 6-4 0-6.2-2-6.2-6zm8.1 0v-2.5c0-1.5-0.6-2.8-2-2.8-1.1 0-1.9 1.3-1.9 2.8v2.5c0 1.5 0.8 2.5 1.9 2.5 1.4 0 2-1 2-2.5z"/>
+        <path class="cls-4p" d="m64.4 30.4v18.1c0 0.4-0.3 0.6-0.5 0.6h-3.2c-0.2 0-0.7-0.2-0.7-0.6v-18.1c0-0.3 0.5-0.4 0.7-0.4h3.2c0.2 0 0.5 0.1 0.5 0.4z"/>
+        <path class="cls-4p" d="m76.9 41.3v1.6c0 0.2-0.3 0.6-0.5 0.6h-6.9c0 1.4 0.5 2.4 1.9 2.4 1 0 1.6-0.5 1.7-1.3 0-0.2 0.4-0.5 0.8-0.4l2.5 0.8c0.2 0 0.2 0.4 0.2 0.6-0.6 2.1-2.5 3.8-5.2 3.8-3.5 0-5.8-2.3-5.8-5.8v-3c0-3.7 2.3-6.1 5.5-6.1 3.6 0 5.8 2.4 5.8 6.8zm-7.5-0.3h3.6c0-1.6-0.6-2.6-1.9-2.6-1.1 0-1.7 1-1.7 2.6z"/>
+        <path class="cls-4p" d="m89.9 36.6-3 0.3c-0.4 0-0.8-0.3-0.8-0.5 0-1.3-0.6-2.8-2-2.8-1.5 0-2.2 1-2.2 2.4v7.4c0 1.2 0.7 2.2 2.2 2.2 1.6 0 2.3-1 2-2.5 0-0.2 0.4-0.5 0.8-0.5h3c0.5 0 0.5 0.3 0.5 0.5 0 3.3-2.3 6.3-6.3 6.3-3.5 0-6.2-2.3-6.2-5.8v-8c0-3.2 2.2-5.6 6-5.6 4 0 6.2 2.5 6.2 5.9 0 0.5 0 0.7-0.2 0.7z"/>
+        <path class="cls-4p" d="m95.4 30.4v18.1c0 0.4-0.3 0.6-0.4 0.6h-3c-0.4 0-0.9-0.2-0.9-0.6v-17.9c0-0.5 0.5-0.6 0.9-0.6h3c0.1 0 0.4 0.1 0.4 0.4z"/>
+        <path class="cls-4p" d="m108 39.7v8.8c0 0.4-0.1 0.6-0.4 0.6h-3c-0.5 0-0.6-0.2-0.6-0.6v-0.4c-0.9 0.8-1.9 1.3-3.1 1.3-2.5 0-4.3-1.4-4.3-4 0-3 1.8-4.5 5-4.5h2.4v-0.9c0-1-0.6-1.6-1.6-1.6-0.9 0-1.4 0.5-1.5 1 0 0.3-0.3 0.3-0.5 0.3l-2.8-0.1c-0.5 0-0.7-0.2-0.7-0.5 0.2-2.5 2.5-4.5 5.5-4.5 3.3-0.1 5.6 1.8 5.6 5.1zm-4 4.9v-1.2h-1.6c-1 0-1.7 0.5-1.7 1.2 0 0.9 0.8 1.3 1.4 1.3 1 0 1.9-0.8 1.9-1.3z"/>
+        <path class="cls-4p" d="m109.1 44.4h3c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.7 1 1.5 1 1.2 0 1.7-0.5 1.6-1 0-1.6-6.9-0.9-6.9-5.6 0-3 2.3-4.8 5.3-4.8 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.2 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.7-1.3-1.7-1.3s-1.5 0.5-1.5 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-1.8 4.2-5.3 4.2s-5.4-1.4-5.5-4.1c0-0.4 0-0.6 0.2-0.6z"/>
+        <path class="cls-4p" d="m120.9 44.4h2.7c0.4 0 0.8 0.2 0.8 0.6 0.2 0.6 0.6 1.4 1.6 1.4 1.1 0 1.6-0.5 1.6-1 0-1.8-6.9-1-6.9-5.8 0-3 2.2-5 5.2-5 3.2 0 5.2 1.8 5.5 4.5 0 0.3-0.3 0.6-0.5 0.6h-2.8c-0.2 0-0.5-0.1-0.5-0.3-0.2-0.8-0.6-1.3-1.6-1.3s-1.4 0.5-1.4 1c0 1.8 6.8 0.9 6.8 5.8 0 2.5-2 4-5.5 4-3.4 0-5.4-1.2-5.4-3.9 0-0.4 0.1-0.6 0.4-0.6z"/>
+        <path class="cls-4p" d="m150 35.9c0 3-2.1 5.7-5.4 5.7h-3.2v6.9c0 0.4-0.3 0.6-0.8 0.6h-3c-0.2 0-0.5-0.2-0.5-0.6v-17.9c0-0.2 0.3-0.6 0.5-0.6h6.8c3.5 0 5.6 2.9 5.6 5.9zm-4 0.1c0-1.4-1-2.9-2.4-2.9h-2.5v5.5h2.5c1.4 0 2.4-1.2 2.4-2.6z"/>
+        <path class="cls-4p" d="m158.6 35.9-0.5 3c0 0.5-0.5 0.5-0.7 0.5-0.3-0.3-0.8-0.3-1-0.3-1 0-1.8 0.9-1.8 2.3v7.1c0 0.4-0.2 0.6-0.5 0.6h-3c-0.1 0-0.5-0.2-0.5-0.6v-13.1c0-0.3 0.4-0.4 0.5-0.4h3c0.3 0 0.5 0.1 0.5 0.4v0.6c0.5-0.6 1.4-1 2.3-1 0.7 0 1.1 0.1 1.7 0.4v0.5z"/>
+        <path class="cls-4p" d="m158.9 43.4v-2.4c0-3.9 1.8-6.4 5.7-6.4 3.8 0 5.4 2.5 5.4 6.4v2.4c0 3.7-2.1 6-5.4 6-4 0-5.7-2-5.7-6zm7.5 0v-2.5c0-1.5-0.5-2.8-1.8-2.8-1.2 0-1.7 1.3-1.7 2.8v2.5c0 1.5 0.5 2.5 1.7 2.5 1.3 0 1.8-1 1.8-2.5z"/>
+      </svg>
+    </div>
+
+    <!-- ON HOT PINK — DO NOT USE -->
+    <div class="logo-cell" style="background:#FF559D; padding: 24px 20px;">
+      <div class="logo-cell-label" style="background:#CC2060;color:#FFFFFF;">❌ On Hot Pink</div>
+      <div style="opacity:.3; pointer-events:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 77" width="200" role="img" aria-label="Do not use — logo on hot pink background" aria-hidden="true" style="display:block;margin:0 auto;max-width:100%;">
+          <title>Do not use — hot pink background</title>
+          <style>.cls-2hp{fill:#140B26}.cls-3hp{fill:#712694}.cls-4hp{fill:#140B26;stroke:#712694;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style>
+          <path class="cls-2hp" d="m31.7 36.5c-1.1-1.7-0.8-3.8-3.7-5.5-1.1-0.8-6.7-4.5-6.7-5.4 0-0.4 0.4-0.9 0.3-1.4-0.1-1.3 0-3.3-0.6-5.1-0.3-1.6-0.5-3.4-2.1-3.3h-1.3v-14.3h-1.4v14.4c-2.3 0.4-4.7 1.4-7.5 1.4-1.5-0.1-4.3-0.5-4.8-0.3-0.2 0.4-1.2 0.4-1.1 1 0.2 0.4 0.7 0.7 0.7 1 0.4 1.1 2.8 0.6 3.6 0.9 1.1 0.5 1.7-0.4 2.5-0.2 1.3 0.1 2.7 0.2 4 0.5 0.8 0.2 2.1 0.4 2.3 0.2l0.1-0.1h-0.1 0.1c0.1 0 0 0 0 0h0.2l-0.1-0.1h-0.1c0.3-0.1 0.1-0.1 0.1-0.1v1.6c-0.5 1-0.7 2.5-0.8 3.7-4.2-0.2-6.4 0.8-9.6 1.8-1.3 0.3-2 1.1-2 1.4-0.3 0.5 0 5.5-0.4 10.5-0.2 2.3-1.5 3.9-1.3 5.3 0.1 0.5-0.2 0.6-0.1 1.7l0.3 3c0.6 0.4 1.2-0.2 1.6-0.5l0.9-3.1c1.4-1.6 1.3-2.3 0.3-3.4 2.7-5.9 3-6.8 2-10.8 0.4-0.5 4.6 0.1 6.5-0.5 1.4-0.3 1.8 0.7 2.7 1.3v0.1l0.2 0.1-0.2 20.5c-0.5 0-0.5 0.7-0.4 1-0.4 0.3-0.3 0.7-0.1 1.1-0.3 0.7 0.3 1 0.4 1.3l-0.6 0.3 0.1 2 0.6 0.4v15.9h1.4v-15.5c1.2-0.4 2-1.4 4.7-4.3 0.7-0.8 4.4-1.3 5.1-5.3 0.3-2 1-3.7 0.6-5.5l1.9-2.9c1.6-1.6 3.1-2.3 1.8-4.8z"/>
+          <path class="cls-4hp" d="m46.6 35.9c0 3-1.9 5.7-5.2 5.7h-3.3v6.9c0 0.4-0.1 0.6-0.5 0.6h-3c-0.2 0-0.6-0.2-0.6-0.6v-17.9c0-0.2 0.4-0.6 0.6-0.6h6.8c3.3 0 5.2 2.9 5.2 5.9zm-3.5 0.1c0-1.4-0.9-2.9-2.4-2.9h-2.8v5.5h2.8c1.5 0 2.4-1.2 2.4-2.6z"/>
+          <path class="cls-4hp" d="m150 35.9c0 3-2.1 5.7-5.4 5.7h-3.2v6.9c0 0.4-0.3 0.6-0.8 0.6h-3c-0.2 0-0.5-0.2-0.5-0.6v-17.9c0-0.2 0.3-0.6 0.5-0.6h6.8c3.5 0 5.6 2.9 5.6 5.9zm-4 0.1c0-1.4-1-2.9-2.4-2.9h-2.5v5.5h2.5c1.4 0 2.4-1.2 2.4-2.6z"/>
+        </svg>
+      </div>
+      <p style="font-size:12px;color:#FFFFFF;font-weight:700;text-align:center;margin-top:4px;">Never on hot pink</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ 5. COMPONENTS ═══════════ -->
+<section class="section" id="components" aria-labelledby="h-comp" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 05</span>
+  <h2 id="h-comp">Callout Components</h2>
+  <p style="color:#140B26;">Two ADA-compliant callout patterns replace the retired hot-pink background. Both carry the brand's feminine energy without failing contrast requirements.</p>
+
+  <div class="usage-grid">
+    <div class="usage-card">
+      <div class="usage-card-label">✅ Approved — Purple Callout</div>
+      <div class="usage-card-body">
+        <div class="callout-purple">
+          <h3>Did You Know?</h3>
+          <p>Pole dance builds more grip strength than most upper-body training programs.</p>
+        </div>
+        <p style="font-size:12px;color:#4A3560;margin-top:8px;">White on #662490 · 7.2:1 · AAA ✓</p>
+      </div>
+    </div>
+
+    <div class="usage-card">
+      <div class="usage-card-label">✅ Approved — Pink Tint Callout</div>
+      <div class="usage-card-body">
+        <div class="callout-pink-tint">
+          <h3>Instructor Tip</h3>
+          <p>Always demo the inverted grip at 60% height before full extension in beginner classes.</p>
+        </div>
+        <p style="font-size:12px;color:#4A3560;margin-top:8px;">Dark text on #FFF0F6 · 18.6:1 · AAA ✓</p>
+      </div>
+    </div>
+
+    <div class="usage-card">
+      <div class="usage-card-label">❌ Retired — Hot Pink Callout</div>
+      <div class="usage-card-body">
+        <div class="callout-bad">
+          <h3>The Problem</h3>
+          <p>White text on #FF559D failed ADA at 2.3:1 — below the 4.5:1 minimum.</p>
+        </div>
+        <span class="retired-note">Retired. Do not use.</span>
+      </div>
+    </div>
+
+    <div class="usage-card">
+      <div class="usage-card-label">✅ Feature Badges</div>
+      <div class="usage-card-body">
+        <div class="chip-row">
+          <span class="chip" style="background:#662490;color:#FFFFFF;">PRO FEATURE</span>
+          <span class="chip" style="background:#FFF0F6;color:#BF1E6E;border:1.5px solid #BF1E6E;">NEW</span>
+          <span class="chip" style="background:#F4EEF9;color:#662490;">COMING SOON</span>
+          <span class="chip" style="background:#140B26;color:#FF8CC2;">TEAM ONLY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 6. PHOTOGRAPHY ═══════════ -->
+<section class="section" id="photos" aria-labelledby="h-photos" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 06</span>
+  <h2 id="h-photos">Photography &amp; Color Grading</h2>
+  <p style="color:#140B26;">Clarissa's proprietary class photos feature warm studio lighting, golden-tone hardwood floors, and bright ambient windows. Grading should enhance this warmth while pulling in the brand palette.</p>
+
+  <div class="photo-grade-grid">
+    <div class="photo-card">
+      <div class="photo-card-label">📸 Source Photo Profile</div>
+      <div class="photo-swatch-row">
+        <div class="photo-swatch" style="background:#C8A97A;"></div>
+        <div class="photo-swatch" style="background:#E8DDD0;"></div>
+        <div class="photo-swatch" style="background:#8B6E52;"></div>
+        <div class="photo-swatch" style="background:#F5F0EA;"></div>
+        <div class="photo-swatch" style="background:#2D2026;"></div>
+      </div>
+      <div class="photo-spec">Warm amber floors · Natural window fill · Clean mirror walls · Soft shadow tones</div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-card-label">🎨 Recommended Grade</div>
+      <div class="photo-swatch-row">
+        <div class="photo-swatch" style="background:#C8A97A;"></div>
+        <div class="photo-swatch" style="background:#BF9FD4;"></div>
+        <div class="photo-swatch" style="background:#E8D0EA;"></div>
+        <div class="photo-swatch" style="background:#FF8CC2;"></div>
+        <div class="photo-swatch" style="background:#1C0E2A;"></div>
+      </div>
+      <div class="photo-spec">Keep warm floors · Pull shadows toward <code>#1C0E2A</code> · Add <code>#BF9FD4</code> midtone tint · Blush accent on chrome pole</div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-card-label">⚙️ Lightroom Settings</div>
+      <div class="photo-spec" style="padding:12px;">
+        <strong>Tone:</strong> Exposure <code>+0.2</code> · Contrast <code>+15</code> · Highlights <code>-20</code> · Shadows <code>+10</code> · Blacks <code>-15</code><br><br>
+        <strong>Color:</strong> Temp <code>+100K</code> · Tint <code>+5 magenta</code> · Purple Hue <code>-15</code> · Purple Sat <code>+20</code><br><br>
+        <strong>Split Tone:</strong> Shadows <code>Hue 280 / Sat 18</code> · Highlights <code>Hue 340 / Sat 8</code><br><br>
+        <strong>Sharpening:</strong> Amount <code>40</code> · Masking <code>60</code>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-card-label">🚫 Avoid These Grades</div>
+      <div class="avoid-spec">
+        ❌ Heavy desaturation / B&amp;W — removes energy<br>
+        ❌ Teal-orange film grade — off-brand<br>
+        ❌ Oversaturated hot pink skin<br>
+        ❌ Cool/blue shadow toning<br>
+        ❌ Heavy vignette — dated look
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 7. BUTTONS ═══════════ -->
+<section class="section" id="buttons" aria-labelledby="h-btns" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 07</span>
+  <h2 id="h-btns">Button System</h2>
+  <p style="color:#140B26;">All interactive elements meet WCAG 1.4.11 (3:1 for UI components) and 4.5:1 for button text. Focus states always visible.</p>
+
+  <div class="btn-row" role="group" aria-label="Button styles">
+    <a href="#" class="btn btn-primary" role="button">Get Started Free</a>
+    <a href="#" class="btn btn-secondary" role="button">Learn More</a>
+    <a href="#" class="btn btn-cta" role="button">Upgrade to Pro →</a>
+    <a href="#" class="btn btn-ghost" role="button">View Demo</a>
+  </div>
+
+  <hr class="divider">
+
+  <ul class="rule-list" style="margin-top:10px;">
+    <li><span class="icon">💜</span><span><strong>#662490 filled</strong> — white text 7.2:1 · Primary action on all light backgrounds</span></li>
+    <li><span class="icon">💜</span><span><strong>#662490 outlined</strong> — purple text on white 7.2:1 · Secondary nav actions</span></li>
+    <li><span class="icon">🌸</span><span><strong>#BF1E6E filled</strong> — white text 4.7:1 · High-urgency CTA</span></li>
+    <li><span class="icon">🌸</span><span><strong>#BF1E6E ghost</strong> — rose text/border on pink tint · Soft secondary CTAs</span></li>
+  </ul>
+</section>
+
+<!-- ═══════════ 8. RULES ═══════════ -->
+<section class="section" id="rules" aria-labelledby="h-rules" style="background:#FFFFFF; color:#140B26;">
+  <span class="section-label">Section 08</span>
+  <h2 id="h-rules">Usage Rules</h2>
+
+  <ul class="rule-list">
+    <li><span class="icon">✅</span><span>Deep Purple (#662490) is the primary heading and CTA color on all light backgrounds.</span></li>
+    <li><span class="icon">✅</span><span>White text on Deep Purple is approved everywhere — AAA certified.</span></li>
+    <li><span class="icon">✅</span><span>Rose (#BF1E6E) is the only pink approved for readable text on white surfaces.</span></li>
+    <li><span class="icon">✅</span><span>Hot Pink (#FF559D) may be used for decorative lines, dividers, SVG illustration — never for text over white.</span></li>
+    <li><span class="icon">✅</span><span>Pink Tint (#FFF0F6) callout backgrounds are approved with dark (#140B26) text.</span></li>
+    <li><span class="icon">✅</span><span>Logo on dark backgrounds: full multi-color dancer. Logo on purple or white: white silhouette + hot pink highlights.</span></li>
+    <li><span class="icon">✅</span><span>All photography should follow the warm-studio grade — preserve floor warmth, pull shadows purple.</span></li>
+    <li><span class="icon">✅</span><span>Minimum body font size: 14px (DM Sans). Headings: Barlow 700–900.</span></li>
+    <li><span class="icon">🚫</span><span>Never use Hot Pink or Blush Pink as text color on white or light backgrounds.</span></li>
+    <li><span class="icon">🚫</span><span>Never place the logo on a hot pink background.</span></li>
+    <li><span class="icon">🚫</span><span>Never distort, rotate, or recolor the dancer figure outside the approved variants.</span></li>
+    <li><span class="icon">🚫</span><span>Never separate the dancer silhouette from the wordmark.</span></li>
+    <li><span class="icon">🚫</span><span>Never use font weights below 400 for body text.</span></li>
+  </ul>
+
+  <div class="note-box" role="note">
+    <h3>Advisory Council Note</h3>
+    <p>These guidelines reflect ACE curriculum standards for professional fitness branding and the ADA compliance audit for PoleClass Pro. The hot pink callout issue is resolved at the system level — replaced with two compliant alternatives that still carry the brand's feminine energy. The dancer detail rule (dark bg = full color, colored bg = white silhouette) is documented as intentional brand behavior, not a limitation.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="brand-footer" role="contentinfo">
+  <strong>PoleClass Pro</strong> · Brand Guide v1.3 · May 2026 · Barlow + DM Sans · WCAG 2.1 AA Compliant
+</footer>
+
+</div>
+</body>
+</html>
